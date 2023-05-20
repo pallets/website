@@ -1,0 +1,8 @@
+name = "Adrian Mönnich"
+nickname = "ThiefMaster"
+location = "Switzerland"
+tags = ["core", "flask", "jinja", "click", "werkzeug"]
+
+[links]
+github = "ThiefMaster"
+twitter = "ThiefMaster"

@@ -1,0 +1,27 @@
+[[tags]]
+name = "core"
+
+[[tags]]
+name = "flask"
+
+[[tags]]
+name = "quart"
+
+[[tags]]
+name = "jinja"
+
+[[tags]]
+name = "click"
+
+[[tags]]
+name = "werkzeug"
+
+[[tags]]
+name = "moderators"
+
+[[tags]]
+name = "docs"
+display = "Documentation"
+
+[[tags]]
+name = "community"

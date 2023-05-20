@@ -1,0 +1,14 @@
+name = "Armin Ronacher"
+nickname = "mitsuhiko"
+location = "Austria"
+tags = ["core", "flask", "jinja", "click", "werkzeug"]
+alumni = true
+content = """
+The original creator of Flask, Jinja, Click, Werkzeug, and many other open
+source libraries.
+"""
+
+[links]
+github = "mitsuhiko"
+twitter = "mitsuhiko"
+website = "http://armin.ronacher.eu/"

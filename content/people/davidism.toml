@@ -1,0 +1,12 @@
+name = "David Lord"
+nickname = "davidism"
+pronouns = "he/they"
+picture = "davidism.jpg"
+location = "San Diego, California"
+tags = ["core", "flask", "jinja", "click", "werkzeug"]
+lead = true
+
+[links]
+github = "davidism"
+mastodon = "@davidism@mas.to"
+website = "https://davidism.com"
