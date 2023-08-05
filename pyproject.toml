@@ -1,13 +1,43 @@
 [project]
-name = "pallets"
+name = "pallets-web"
 version = "1.0.0"
+description = "Pallets website and content."
+readme = "README.md"
+license = {file = "LICENSE.md"}
+maintainers = [{name = "Pallets", email = "contact@palletsprojects.com"}]
+classifiers = ["Private :: No Not Upload"]
 requires-python = ">=3.11"
 dependencies = [
+    "feedgen",
     "flask",
-    "click",
-    "marko"
+    "flask-sqlalchemy",
+    "gunicorn",
+    "marko",
 ]
+
+[project.urls]
+Home = "https://palletsprojects.com"
+Source = "https://github.com/pallets/pallets-web/"
 
 [build-system]
 requires = ["flit_core<4"]
 build-backend = "flit_core.buildapi"
+
+[tool.flit.module]
+name = "pallets"
+
+[tool.ruff]
+src = ["src/*"]
+fix = true
+show-fixes = true
+select = [
+    "F",  # pyflakes
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "B",  # bugbear
+    "B9",  # bugbear opinions
+    "ISC",  # implicity str concat
+]
+
+[tool.ruff.isort]
+force-single-line = true
