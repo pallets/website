@@ -21,7 +21,7 @@ def create_app() -> Flask:
 
     db.init_app(app)
 
-    from . import models
+    from . import models, views
 
     with app.app_context():
         db.create_all()
@@ -34,6 +34,8 @@ def create_app() -> Flask:
                 "projects": models.Project,
             },
         )
+
+    app.register_blueprint(views.bp)
 
     forwarded = app.config["FORWARDED"]
 
