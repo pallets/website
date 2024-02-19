@@ -3,16 +3,16 @@ name = "pallets-web"
 version = "1.0.0"
 description = "Pallets website and content."
 readme = "README.md"
-license = {file = "LICENSE.md"}
+license = {file = "LICENSE.txt"}
 maintainers = [{name = "Pallets", email = "contact@palletsprojects.com"}]
 classifiers = ["Private :: No Not Upload"]
-requires-python = ">=3.11"
+requires-python = "~=3.12.0"
 dependencies = [
     "feedgen",
     "flask",
     "flask-sqlalchemy",
     "gunicorn",
-    "marko",
+    "marko[codehilite]",
 ]
 
 [project.urls]
@@ -26,18 +26,33 @@ build-backend = "flit_core.buildapi"
 [tool.flit.module]
 name = "pallets"
 
-[tool.ruff]
-src = ["src/*"]
-fix = true
-show-fixes = true
-select = [
-    "F",  # pyflakes
-    "E",  # pycodestyle errors
-    "W",  # pycodestyle warnings
-    "B",  # bugbear
-    "B9",  # bugbear opinions
-    "ISC",  # implicity str concat
-]
+[tool.mypy]
+files = ["src/pallets"]
+show_error_codes = true
+pretty = true
+strict = true
 
-[tool.ruff.isort]
+[tool.pyright]
+include = ["src/pallets"]
+
+[tool.ruff]
+src = ["src"]
+fix = true
+unsafe-fixes = true
+show-fixes = true
+show-source = true
+
+[tool.ruff.lint]
+select = [
+    "B",  # flake8-bugbear
+    "E",  # pycodestyle error
+    "F",  # pyflakes
+    "I",  # isort
+    "UP",  # pyupgrade
+    "W",  # pycodestyle warning
+]
+ignore-init-module-imports = true
+
+[tool.ruff.lint.isort]
 force-single-line = true
+order-by-type = false
