@@ -1,4 +1,4 @@
--c base.txt
+-r base.txt
 pip-tools
 pre-commit
 python-dotenv
