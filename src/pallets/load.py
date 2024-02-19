@@ -41,8 +41,8 @@ def load_content(
                 try:
                     with open(file_path, "rb") as f:
                         data = tomllib.load(f)
-                except tomllib.TOMLDecodeError:
-                    raise RuntimeError(f"Error reading {file_path}")
+                except tomllib.TOMLDecodeError as e:
+                    raise RuntimeError(f"Error reading {file_path}") from e
             else:
                 continue
 
@@ -58,7 +58,7 @@ def load_content(
         db.session.commit()
 
 
-def parse_md(file: str | os.PathLike) -> dict[str, t.Any]:
+def parse_md(file: str | os.PathLike[str]) -> dict[str, t.Any]:
     data = Path(file).read_text()
 
     if data.startswith("~~~~toml"):

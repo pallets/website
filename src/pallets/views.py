@@ -1,6 +1,7 @@
 from flask import Blueprint
 from flask import current_app
 from flask import render_template
+from flask import Response
 
 from . import db
 from . import models
@@ -9,7 +10,7 @@ bp = Blueprint("core", __name__)
 
 
 @bp.route("/robots.txt")
-def robots():
+def robots() -> Response:
     return current_app.send_static_file("robots.txt")
 
 

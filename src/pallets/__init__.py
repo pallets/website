@@ -6,12 +6,12 @@ from sqlalchemy.orm import DeclarativeBase
 from werkzeug.middleware.proxy_fix import ProxyFix
 
 
-class Model(DeclarativeBase):
+class Model(DeclarativeBase):  # pyright: ignore
     pass
 
 
 db = SQLAlchemy(model_class=Model)
-Model: Model = db.Model
+Model: Model = db.Model  # type: ignore[no-redef]
 
 
 def create_app() -> Flask:
@@ -46,7 +46,7 @@ def create_app() -> Flask:
     forwarded = app.config["FORWARDED"]
 
     if forwarded["FOR"] > 0:
-        app.wsgi_app = ProxyFix(
+        app.wsgi_app = ProxyFix(  # type: ignore[method-assign]
             app.wsgi_app,
             x_for=forwarded["FOR"],
             x_proto=forwarded["PROTO"],

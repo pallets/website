@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import typing as t
+from datetime import datetime
 
 import sqlalchemy as sa
 import sqlalchemy.orm as orm
@@ -13,11 +14,14 @@ from .markdown import markdown
 class BasePage(Model):
     __abstract__ = True
 
-    path = sa.Column(sa.String, primary_key=True)
-    content = sa.Column(sa.String)
+    path: orm.Mapped[str] = orm.mapped_column(primary_key=True)
+    content: orm.Mapped[str | None]
 
     @property
     def content_html(self) -> str:
+        if self.content is None:
+            return Markup()
+
         return Markup(markdown.convert(self.content))
 
 
@@ -34,23 +38,23 @@ class Page(BasePage):
 
 
 class Person(PrefixPage):
-    name = sa.Column(sa.String, nullable=False)
-    nickname = sa.Column(sa.String)
-    pronouns = sa.Column(sa.String)
-    picture = sa.Column(sa.String)
-    location = sa.Column(sa.String)
-    links = sa.Column(sa.JSON, nullable=False, default=lambda: {})
-    tags = sa.Column(sa.JSON, nullable=False, default=lambda: [])
-    lead = sa.Column(sa.Boolean, nullable=False, default=False)
-    alumni = sa.Column(sa.Boolean, nullable=False, default=False)
+    name: orm.Mapped[str]
+    nickname: orm.Mapped[str | None]
+    pronouns: orm.Mapped[str | None]
+    picture: orm.Mapped[str | None]
+    location: orm.Mapped[str | None]
+    links: orm.Mapped[dict[str, str]] = orm.mapped_column(sa.JSON, default=dict)
+    tags: orm.Mapped[list[str]] = orm.mapped_column(sa.JSON, default=list)
+    lead: orm.Mapped[bool] = orm.mapped_column(default=False)
+    alumni: orm.Mapped[bool] = orm.mapped_column(default=False)
 
 
 class Project(PrefixPage):
-    name = sa.Column(sa.String, nullable=False)
-    logo = sa.Column(sa.String)
-    pypi = sa.Column(sa.String, nullable=False)
-    github = sa.Column(sa.String, nullable=False)
-    docs = sa.Column(sa.String, nullable=False)
+    name: orm.Mapped[str]
+    logo: orm.Mapped[str | None]
+    pypi: orm.Mapped[str]
+    github: orm.Mapped[str]
+    docs: orm.Mapped[str]
 
     def __init__(self, **kwargs: t.Any) -> None:
         name = kwargs["path"].partition("/")[2]
@@ -61,13 +65,12 @@ class Project(PrefixPage):
 
 
 class BlogPost(BasePage):
-    path = sa.Column(sa.String, primary_key=True)
-    content = sa.Column(sa.String, nullable=False)
-    author_path = sa.Column(sa.ForeignKey(Person.path))
-    author = orm.relationship(Person)
-    published = sa.Column(sa.DateTime, nullable=False)
-    updated = sa.Column(sa.DateTime)
-    tags = sa.Column(sa.JSON, nullable=False, default=lambda: [])
+    content: orm.Mapped[str]
+    author_path: orm.Mapped[str | None] = orm.mapped_column(sa.ForeignKey(Person.path))
+    author: orm.Mapped[Person | None] = orm.relationship()
+    published: orm.Mapped[datetime]
+    updated: orm.Mapped[datetime]
+    tags: orm.Mapped[list[str]] = orm.mapped_column(sa.JSON, default=list)
 
     def __init__(self, **kwargs: t.Any) -> None:
         kwargs["author_path"] = kwargs.pop("author")
