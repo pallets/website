@@ -29,7 +29,7 @@ and help us grow!
 
 ## Joining the Community
 
-Join our Discord chat server using this link: https://discord.gg/pallets. Once
+Join our Discord chat server using this link: <https://discord.gg/pallets>. Once
 there, you can use the `#pallets-eco` channel to introduce yourself and ask to
 join, and to discuss anything about the organization.
 

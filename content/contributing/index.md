@@ -24,6 +24,8 @@ If you're getting more involved as a community or team member, see these guides:
   good issue reports and requests.
 * [Environment](environment.md) gives an overview of the tools we use.
 
+You can also support us by [making a donation](../donate.md).
+
 ## What to Work On
 
 Anyone is welcome to work on any open ticket in any project's issue tracker,

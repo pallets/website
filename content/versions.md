@@ -76,12 +76,11 @@ contexts.
 
 Please see any of the following resources for more information:
 
-* https://hynek.me/articles/semver-will-not-save-you/
-* https://www.youtube.com/watch?v=WSVFw-3ssXM&t
-* https://snarky.ca/why-i-dont-like-semver/
-* https://caremad.io/posts/2016/02/versioning-software/
-* https://bernat.tech/posts/version-numbers/
-* https://iscinumpy.dev/post/bound-version-constraints/
-
+* <https://hynek.me/articles/semver-will-not-save-you/>
+* <https://www.youtube.com/watch?v=WSVFw-3ssXM&t>
+* <https://snarky.ca/why-i-dont-like-semver/>
+* <https://caremad.io/posts/2016/02/versioning-software/>
+* <https://bernat.tech/posts/version-numbers/>
+* <https://iscinumpy.dev/post/bound-version-constraints/>
 
 [PEP 440]: https://peps.python.org/pep-0440/

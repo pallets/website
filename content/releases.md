@@ -28,7 +28,7 @@ attention a project is getting.
 
 After a new feature release, fix releases will typically wait a few extra days
 before publishing. This is to try to reduce the number of releases if new issues
-are being reported. 
+are being reported.
 
 ## Security
 
