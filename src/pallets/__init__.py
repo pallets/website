@@ -1,16 +1,20 @@
 from __future__ import annotations
 
-
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.orm import DeclarativeBase
 from werkzeug.middleware.proxy_fix import ProxyFix
 
-db = SQLAlchemy()
+
+class Model(DeclarativeBase):
+    pass
+
+
+db = SQLAlchemy(model_class=Model)
+Model: Model = db.Model
 
 
 def create_app() -> Flask:
-    from .load import load_content
-
     app = Flask(__name__)
     app.config.from_mapping(
         SECRET_KEY="dev",
@@ -21,7 +25,9 @@ def create_app() -> Flask:
 
     db.init_app(app)
 
-    from . import models, views
+    from . import models
+    from . import views
+    from .load import load_content
 
     with app.app_context():
         db.create_all()

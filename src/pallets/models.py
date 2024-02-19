@@ -3,14 +3,14 @@ from __future__ import annotations
 import typing as t
 
 import sqlalchemy as sa
-import sqlalchemy.orm as sa_orm
+import sqlalchemy.orm as orm
 from markupsafe import Markup
 
-from . import db
+from . import Model
 from .markdown import markdown
 
 
-class BasePage(db.Model):
+class BasePage(Model):
     __abstract__ = True
 
     path = sa.Column(sa.String, primary_key=True)
@@ -64,7 +64,7 @@ class BlogPost(BasePage):
     path = sa.Column(sa.String, primary_key=True)
     content = sa.Column(sa.String, nullable=False)
     author_path = sa.Column(sa.ForeignKey(Person.path))
-    author = sa_orm.relationship(Person)
+    author = orm.relationship(Person)
     published = sa.Column(sa.DateTime, nullable=False)
     updated = sa.Column(sa.DateTime)
     tags = sa.Column(sa.JSON, nullable=False, default=lambda: [])
