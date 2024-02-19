@@ -2,10 +2,53 @@
 <html lang=en>
 <head>
   <meta charset=UTF-8>
+  <meta name=viewport content="width=device-width, initial-scale=1">
   <title>{{ title }}</title>
+  <link rel=stylesheet href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+  <link rel=stylesheet href="/static/pygments-default.css">
+  <link rel=stylesheet href="/static/pygments-github-dark.css">
+  <link rel=stylesheet href="/static/style.css">
 </head>
 <body>
-{% block page %}
-{% endblock page %}
+<header class="container">
+  <nav>
+    <ul>
+      <li><a href="/" class="logo"><img src="/static/pallets.png" alt=""></a></li>
+      <li><a href="/" class="contrast"><strong>Pallets</strong></a></li>
+    </ul>
+    <ul>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/donate">Donate</a></li>
+      <li><a href="/contributing/">Contributing</a></li>
+      <li><a href="/ecosystem">Ecosystem</a></li>
+      <li><a href="/people/">People</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+<main class="container">
+  {% block page %}{% endblock %}
+</main>
+<footer class="container grid">
+    <ul>
+      <li><strong>Policies</strong></li>
+      <li><a href="/security">Security</a></li>
+      <li><a href="/releases">Releases</a></li>
+      <li><a href="/versions">Versions</a></li>
+      <li><a href="/code-of-conduct">Code of Conduct</a></li>
+    </ul>
+    <ul>
+      <li><strong>Elsewhere</strong></li>
+      <li><a href="https://github.com/pallets/">Pallets on GitHub</a></li>
+      <li><a href="https://pypi.org/org/pallets/">Pallets on PyPI</a></li>
+      <li><a href="https://github.com/pallets-eco/">Pallets-Eco on GitHub</a></li>
+      <li><a href="https://pypi.org/org/pallets-eco/">Pallets-Eco on PyPI</a></li>
+    </ul>
+    <ul>
+      <li><strong>Support Us</strong></li>
+      <li><a href="/donate">Donate</a></li>
+      <li><a href="/funding">Funding Sources</a></li>
+    </ul>
+</footer>
 </body>
 </html>

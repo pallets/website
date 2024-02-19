@@ -1,0 +1,37 @@
+header {
+  border-bottom: 1px solid var(--pico-muted-border-color);
+}
+
+header nav a.logo {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+header nav a.logo img {
+  height: 3em;
+  max-width: none;
+}
+
+@media (max-width: 767px) {
+  header nav {
+    overflow-x: auto;
+  }
+
+  header nav a.logo img {
+    height: 2em;
+  }
+}
+
+footer {
+  border-top: 1px solid var(--pico-muted-border-color);
+  font-size: 0.75rem;
+  align-items: start;
+}
+
+footer ul {
+  display: grid;
+}
+
+footer ul li {
+  list-style-type: none;
+}
