@@ -29,16 +29,20 @@ def load_content(
             path_models[relative] = path_model = base_model
 
         for file in files:
+            file_path = os.path.join(parent, file)
             name, ext = os.path.splitext(file)
 
             if file[0] == "_":
                 continue
 
             if ext == ".md":
-                data = parse_md(os.path.join(parent, file))
+                data = parse_md(file_path)
             elif ext == ".toml":
-                with open(os.path.join(parent, file), "rb") as f:
-                    data = tomllib.load(f)
+                try:
+                    with open(file_path, "rb") as f:
+                        data = tomllib.load(f)
+                except tomllib.TOMLDecodeError:
+                    raise RuntimeError(f"Error reading {file_path}")
             else:
                 continue
 
@@ -62,16 +66,21 @@ def parse_md(file: str | os.PathLike) -> dict[str, t.Any]:
         toml_lines = []
         content_lines = []
 
-        for line in data.splitlines():
+        for line in data.splitlines()[1:]:
             if reading_toml:
-                toml_lines.append(line)
-
                 if line == "~~~~":
                     reading_toml = False
+                    continue
+
+                toml_lines.append(line)
             else:
                 content_lines.append(line)
 
-        out = tomllib.loads("\n".join(toml_lines))
+        try:
+            out = tomllib.loads("\n".join(toml_lines))
+        except tomllib.TOMLDecodeError as e:
+            raise RuntimeError(f"Error reading TOML in {file}") from e
+
         out["content"] = "\n".join(content_lines)
         return out
 

@@ -15,7 +15,6 @@ def create_app() -> Flask:
     app.config.from_mapping(
         SECRET_KEY="dev",
         SQLALCHEMY_DATABASE_URI="sqlite://",
-        SQLALCHEMY_ECHO=True,
         FORWARDED=dict(FOR=0, PROTO=0, HOST=0, PORT=0, PREFIX=0),
     )
     app.config.from_prefixed_env()
@@ -30,8 +29,9 @@ def create_app() -> Flask:
             app,
             models.Page,
             {
-                "people": models.Person,
                 "blog": models.BlogPost,
+                "people": models.Person,
+                "projects": models.Project,
             },
         )
 
