@@ -45,13 +45,17 @@ lxml==5.1.0
     # via
     #   -r requirements/base.txt
     #   feedgen
-marko[codehilite]==2.0.2
+markdown-it-py==3.0.0
     # via -r requirements/base.txt
 markupsafe==2.1.5
     # via
     #   -r requirements/base.txt
     #   jinja2
     #   werkzeug
+mdurl==0.1.2
+    # via
+    #   -r requirements/base.txt
+    #   markdown-it-py
 nodeenv==1.8.0
     # via pre-commit
 packaging==23.2
@@ -66,9 +70,7 @@ platformdirs==4.2.0
 pre-commit==3.6.1
     # via -r requirements/dev.in
 pygments==2.17.2
-    # via
-    #   -r requirements/base.txt
-    #   marko
+    # via -r requirements/base.txt
 pyproject-hooks==1.0.0
     # via
     #   build

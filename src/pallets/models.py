@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import posixpath
 import typing as t
 from datetime import datetime
 
@@ -8,13 +9,14 @@ import sqlalchemy.orm as orm
 from markupsafe import Markup
 
 from . import Model
-from .markdown import markdown
+from .markdown import render_content
 
 
 class BasePage(Model):
     __abstract__ = True
 
     path: orm.Mapped[str] = orm.mapped_column(primary_key=True)
+    is_dir: orm.Mapped[bool] = orm.mapped_column(default=False)
     content: orm.Mapped[str | None]
 
     @property
@@ -22,7 +24,7 @@ class BasePage(Model):
         if self.content is None:
             return Markup()
 
-        return Markup(markdown.convert(self.content))
+        return Markup(render_content(self.content, posixpath.dirname(self.path)))
 
 
 class PrefixPage(BasePage):

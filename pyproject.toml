@@ -12,7 +12,8 @@ dependencies = [
     "flask",
     "flask-sqlalchemy",
     "gunicorn",
-    "marko[codehilite]",
+    "markdown-it-py",
+    "pygments",
 ]
 
 [project.urls]
@@ -40,7 +41,7 @@ src = ["src"]
 fix = true
 unsafe-fixes = true
 show-fixes = true
-show-source = true
+output-format = "full"
 
 [tool.ruff.lint]
 select = [

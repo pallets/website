@@ -49,6 +49,7 @@ def load_content(
             if name == "index":
                 model = path_models[os.path.dirname(relative)]
                 data["path"] = relative
+                data["is_dir"] = True
             else:
                 model = path_model
                 data["path"] = f"{relative}/{name}".removeprefix("/")
