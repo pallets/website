@@ -36,10 +36,11 @@ class PrefixPage(BasePage):
 
 
 class Page(BasePage):
-    pass
+    __tablename__ = "page"
 
 
 class Person(PrefixPage):
+    __tablename__ = "person"
     name: orm.Mapped[str]
     nickname: orm.Mapped[str | None]
     pronouns: orm.Mapped[str | None]
@@ -52,6 +53,7 @@ class Person(PrefixPage):
 
 
 class Project(PrefixPage):
+    __tablename__ = "project"
     name: orm.Mapped[str]
     logo: orm.Mapped[str | None]
     pypi: orm.Mapped[str]
@@ -67,6 +69,7 @@ class Project(PrefixPage):
 
 
 class BlogPost(BasePage):
+    __tablename__ = "blog_post"
     content: orm.Mapped[str]
     author_path: orm.Mapped[str | None] = orm.mapped_column(sa.ForeignKey(Person.path))
     author: orm.Mapped[Person | None] = orm.relationship()

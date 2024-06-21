@@ -1,24 +1,23 @@
 from __future__ import annotations
 
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
+from flask_sqlalchemy_lite import SQLAlchemy
 from sqlalchemy.orm import DeclarativeBase
 from werkzeug.middleware.proxy_fix import ProxyFix
 
 
-class Model(DeclarativeBase):  # pyright: ignore
+class Model(DeclarativeBase):
     pass
 
 
-db = SQLAlchemy(model_class=Model)
-Model: Model = db.Model  # type: ignore[no-redef]
+db = SQLAlchemy()
 
 
 def create_app() -> Flask:
     app = Flask(__name__)
     app.config.from_mapping(
         SECRET_KEY="dev",
-        SQLALCHEMY_DATABASE_URI="sqlite://",
+        SQLALCHEMY_ENGINES={"default": "sqlite://"},
         FORWARDED=dict(FOR=0, PROTO=0, HOST=0, PORT=0, PREFIX=0),
     )
     app.config.from_prefixed_env()
@@ -30,7 +29,7 @@ def create_app() -> Flask:
     from .load import load_content
 
     with app.app_context():
-        db.create_all()
+        Model.metadata.create_all(db.engine)
         load_content(
             app,
             models.Page,

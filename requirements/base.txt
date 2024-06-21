@@ -4,18 +4,22 @@
 #
 #    pip-compile --output-file=base.txt ../pyproject.toml
 #
+asgiref==3.8.1
+    # via flask
 blinker==1.8.2
     # via flask
 click==8.1.7
     # via flask
 feedgen==1.0.0
     # via pallets-web (../pyproject.toml)
-flask==3.0.3
+flask[async]==3.0.3
     # via
-    #   flask-sqlalchemy
+    #   flask-sqlalchemy-lite
     #   pallets-web (../pyproject.toml)
-flask-sqlalchemy==3.1.1
+flask-sqlalchemy-lite==0.1.0
     # via pallets-web (../pyproject.toml)
+greenlet==3.0.3
+    # via sqlalchemy
 gunicorn==22.0.0
     # via pallets-web (../pyproject.toml)
 itsdangerous==2.2.0
@@ -40,8 +44,8 @@ python-dateutil==2.9.0.post0
     # via feedgen
 six==1.16.0
     # via python-dateutil
-sqlalchemy==2.0.31
-    # via flask-sqlalchemy
+sqlalchemy[asyncio]==2.0.31
+    # via flask-sqlalchemy-lite
 typing-extensions==4.12.2
     # via sqlalchemy
 werkzeug==3.0.3

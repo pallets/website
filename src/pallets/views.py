@@ -5,6 +5,7 @@ from flask import current_app
 from flask import render_template
 from flask import Response
 from flask import send_from_directory
+from werkzeug.exceptions import NotFound
 
 from . import db
 from . import models
@@ -28,7 +29,10 @@ def static_content(path: str) -> Response:
 @bp.get("/<path:path>")
 def page(path: str) -> str | Response:
     page_path = path.removesuffix("/")
-    obj = db.get_or_404(models.Page, page_path)
+    obj = db.session.get(models.Page, page_path)
+
+    if obj is None:
+        raise NotFound()
 
     if path.endswith("/"):
         if not obj.is_dir:
@@ -45,17 +49,29 @@ def page(path: str) -> str | Response:
 
 @bp.route("/people/<path>")
 def person(path: str) -> str:
-    obj = db.get_or_404(models.Person, path)
+    obj = db.session.get(models.Person, path)
+
+    if obj is None:
+        raise NotFound()
+
     return render_template("person.html", page=obj)
 
 
 @bp.route("/p/<path>")
 def project(path: str) -> str:
-    obj = db.get_or_404(models.Project, path)
+    obj = db.session.get(models.Project, path)
+
+    if obj is None:
+        raise NotFound()
+
     return render_template("project.html", page=obj)
 
 
 @bp.route("/blog/<path:path>")
 def blog_post(path: str) -> str:
-    obj = db.get_or_404(models.BlogPost, path)
+    obj = db.session.get(models.BlogPost, path)
+
+    if obj is None:
+        raise NotFound()
+
     return render_template("blog.html", page=obj)
