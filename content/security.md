@@ -27,15 +27,26 @@ and severity, but is not guaranteed.
 
 ## Before Reporting
 
-The following categories will generally not be considered security issues.
+The following categories will generally not be considered security issues. You
+may still err on the side of caution and make a private report first, but we
+may close it or ask you to report a regular issue instead.
 
 * The Werkzeug and Flask development server, debugger, and reloader.
   Documentation and startup messages already clearly indicate that these are
   intended for local development only.
 * Use of Jinja and MarkupSafe HTML escaping in other contexts, such as JavaScript.
+* Use of SHA-1 in ItsDangerous. SHA-1 is not vulnerable when used as an
+  intermediate step in HMAC, and ItsDangerous can be configured to use another
+  algorithm when needed.
 * Insecure configuration or code in a project *using* our libraries. This should
   be reported to the relevant project instead.
 * Regular expression performance, often referred to as "ReDoS". Deployed
   applications should use standard/recommended resource limits offered by their
   server software and hosting service. You may report this as a regular
   performance issue instead of a security issue.
+* Automated reports from vulnerability scanners or "AI" tools. Please make it
+  clear that you understand what you are reporting and have put personal time
+  into crafting the report.
+* Do not report something that has already been fixed and released. Getting a
+  notification from your security scanner that you need to update is not itself
+  a new vulnerability to report.
