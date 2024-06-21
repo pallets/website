@@ -28,6 +28,13 @@ If you or your company do not use GitHub, or would like to use PayPal or check,
 you may donate directly through the PSF. You may donate any amount, either one
 time or on a schedule.
 
+## thanks.dev Subscription
+
+[thanks.dev] analyzes your project's dependency tree, allows you to choose a
+budget, and then distributes your donation to your dependencies.
+
+[thanks.dev]: https://thanks.dev
+
 ## EthicalAds and Read the Docs
 
 Our documentation is hosted by [Read the Docs][], which shows relevant and
@@ -54,3 +61,10 @@ return, Pallets follows Tidelift's guidelines for keeping up-to-date information
 and security practices.
 
 [Tidelift]: https://tidelift.com
+
+## thanks.dev Subscription
+
+[thanks.dev] analyzes your project's dependency tree, allows you to choose a
+budget, and then distributes your donation to your dependencies.
+
+[thanks.dev]: https://thanks.dev

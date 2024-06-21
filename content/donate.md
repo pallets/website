@@ -10,6 +10,7 @@ grateful to the community support that helps that continue. Thank you!
 
 * Donate through GitHub Sponsors: <https://github.com/sponsors/pallets>
 * Donate through the Python Software Foundation (PSF): <https://psfmember.org/civicrm/contribute/transact/?reset=1&id=20>
+* Subscribe through thanks.dev: <https://thanks.dev>
 * Subscribe through Tidelift: <https://tidelift.com>
 
 See the [Funding Sources](funding.md) page for details about all our funding
