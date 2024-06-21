@@ -71,8 +71,7 @@ described above.
 We do not assign "SemVer" meanings or guarantees to versions. In general, you
 must not assume that any project that uses a three-number implies SemVer. Our
 policy described above does use similar ideas. It may help to think of our
-versions as `major.major.minor-or-patch` if you need to use SemVer in other
-contexts.
+versions as `major.major.patch` if you need to use SemVer in other contexts.
 
 Please see any of the following resources for more information:
 
