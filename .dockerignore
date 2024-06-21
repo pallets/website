@@ -1,0 +1,9 @@
+*
+!content/
+!requirements/
+!src/
+!.flaskenv
+!gunicorn_conf.py
+!LICENSE.txt
+!pyproject.toml
+!README.md
