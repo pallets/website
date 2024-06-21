@@ -1,5 +1,7 @@
 -r base.txt
+-r typing.txt
 pip-tools
 pre-commit
 python-dotenv
+tox
 watchdog
