@@ -6,40 +6,34 @@ from datetime import datetime
 
 import sqlalchemy as sa
 import sqlalchemy.orm as orm
-from markupsafe import Markup
 
 from . import Model
 from .markdown import render_content
 
 
 class BasePage(Model):
+    content_prefix: str = ""
     __abstract__ = True
-
     path: orm.Mapped[str] = orm.mapped_column(primary_key=True)
     is_dir: orm.Mapped[bool] = orm.mapped_column(default=False)
     content: orm.Mapped[str | None]
-
-    @property
-    def content_html(self) -> str:
-        if self.content is None:
-            return Markup()
-
-        return Markup(render_content(self.content, posixpath.dirname(self.path)))
-
-
-class PrefixPage(BasePage):
-    __abstract__ = True
+    content_html: orm.Mapped[str] = orm.mapped_column(default="")
 
     def __init__(self, **kwargs: t.Any) -> None:
-        kwargs["path"] = kwargs["path"].partition("/")[2]
+        kwargs["path"] = kwargs["path"].removeprefix(f"{self.content_prefix}/")
         super().__init__(**kwargs)
+
+        if self.content:
+            path = posixpath.join(self.content_prefix, posixpath.dirname(self.path))
+            self.content_html = render_content(self.content, path)
 
 
 class Page(BasePage):
     __tablename__ = "page"
 
 
-class Person(PrefixPage):
+class Person(BasePage):
+    content_prefix = "people"
     __tablename__ = "person"
     name: orm.Mapped[str]
     nickname: orm.Mapped[str | None]
@@ -52,7 +46,8 @@ class Person(PrefixPage):
     alumni: orm.Mapped[bool] = orm.mapped_column(default=False)
 
 
-class Project(PrefixPage):
+class Project(BasePage):
+    content_prefix = "projects"
     __tablename__ = "project"
     name: orm.Mapped[str]
     logo: orm.Mapped[str | None]
@@ -62,13 +57,14 @@ class Project(PrefixPage):
 
     def __init__(self, **kwargs: t.Any) -> None:
         name = kwargs["path"].partition("/")[2]
-        kwargs.setdefault("pypi", name)
-        kwargs.setdefault("github", name)
-        kwargs.setdefault("docs", name)
+        kwargs.setdefault("pypi", f"https://pypi.org/project/{name}/")
+        kwargs.setdefault("github", f"https://github.com/pallets/{name}")
+        kwargs.setdefault("docs", f"https://{name}.palletsprojects.com")
         super().__init__(**kwargs)
 
 
 class BlogPost(BasePage):
+    content_prefix = "blog"
     __tablename__ = "blog_post"
     content: orm.Mapped[str]
     author_path: orm.Mapped[str | None] = orm.mapped_column(sa.ForeignKey(Person.path))

@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block page %}
+  <section>
+    {{ page.content_html | safe }}
+  </section>
+  <section style="display: grid; grid-template-columns: repeat(4, 1fr);">
+    {% for title in ("Flask", "Quart", "Jinja", "Click", "Werkzeug", "ItsDangerous", "MarkupSafe") %}
+      {% set name = title.lower() %}
+      <p>
+          <a href="projects/{{ name }}"><img src="/static/content/projects/{{ name }}-logo.png" style="height: 3em;"></a>
+          <a href="projects/{{ name }}" class="contrast"><strong>{{ title }}</strong></a>
+      </p>
+    {% endfor %}
+  </section>
+{% endblock %}

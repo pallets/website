@@ -1,10 +1,10 @@
 from __future__ import annotations
 
-import collections.abc as cabc
-import posixpath
+import collections.abc as c
 import typing as t
 
 import pygments
+from bs4 import BeautifulSoup
 from markdown_it import MarkdownIt
 from markdown_it.renderer import RendererHTML
 from markdown_it.token import Token
@@ -29,7 +29,7 @@ def highlight(content: str, langName: str, langAttrs: str) -> str | None:
 
 def render_fence(
     renderer: RendererHTML,
-    tokens: cabc.Sequence[Token],
+    tokens: c.Sequence[Token],
     index: int,
     options: OptionsDict,
     env: dict[str, t.Any],
@@ -45,49 +45,92 @@ def render_fence(
 
 def render_link_open(
     renderer: RendererHTML,
-    tokens: cabc.Sequence[Token],
+    tokens: c.Sequence[Token],
     index: int,
     options: OptionsDict,
     env: dict[str, t.Any],
 ) -> str:
     token = tokens[index]
-    ref: str | None = token.attrs.get("href")
+    href = _rewrite_link(token.attrs.get("href"), env["content_dir"], True)
 
-    if ref and ref[0] != "/" and ":" not in ref:
-        # rewrite relative links to be served by app views
-        if (page_ref := ref.removesuffix(".md").removesuffix(".toml")) != ref:
-            # remove .md and .toml extensions in links to other pages
-            token.attrs["href"] = f"{env["content_dir"]}/{page_ref}".removeprefix("/")
-        else:
-            # other files are served by static content view
-            token.attrs["href"] = f"/static/content/{env["content_dir"]}/{ref}"
+    if href is not None:
+        token.attrs["href"] = href
 
     return renderer.renderToken(tokens, index, options, env)
 
 
 def render_image(
     renderer: RendererHTML,
-    tokens: cabc.Sequence[Token],
+    tokens: c.Sequence[Token],
     index: int,
     options: OptionsDict,
     env: dict[str, t.Any],
 ) -> str:
     token = tokens[index]
-    ref: str | None = token.attrs.get("src")
+    src = _rewrite_link(token.attrs.get("src"), env["content_dir"])
 
-    if ref and ref[0] != "/" and ":" not in ref:
-        # files are served by static content view
-        token.attrs["src"] = posixpath.normpath(
-            f"/static/content/{env["content_dir"]}/{ref}"
-        )
+    if src is not None:
+        token.attrs["src"] = src
 
     return renderer.renderToken(tokens, index, options, env)
+
+
+def render_html_block(
+    renderer: RendererHTML,
+    tokens: c.Sequence[Token],
+    index: int,
+    options: OptionsDict,
+    env: dict[str, t.Any],
+) -> str:
+    token = tokens[index]
+    # TODO handle partial html blocks wrapping markdown
+    soup = BeautifulSoup(token.content, "lxml")
+
+    for attr, page in (("href", True), ("src", False)):
+        for tag in soup.find_all(**{attr: True}):
+            ref = _rewrite_link(tag[attr], env["content_dir"], page)
+
+            if ref is not None:
+                tag[attr] = ref
+
+    soup.html.unwrap()
+    soup.body.unwrap()
+    token.content = str(soup)
+    return renderer.html_block(tokens, index, options, env)
+
+
+def _rewrite_link(
+    ref: str | None, content_dir: str, allow_page: bool = False
+) -> str | None:
+    if ref is None:
+        return None
+
+    if ref and ref[0] != "/" and ":" not in ref:
+        # rewrite relative links to be served by app views
+        if (
+            allow_page
+            and (page_ref := ref.removesuffix(".md").removesuffix(".toml")) != ref
+        ):
+            # remove .md and .toml extensions in links to other pages
+            return f"{content_dir}/{page_ref}".removeprefix("/")
+        else:
+            # other files are served by static content view
+            parts = ["/static/content"]
+
+            if content_dir:
+                parts.append(content_dir)
+
+            parts.append(ref)
+            return "/".join(parts)
+
+    return ref
 
 
 md = MarkdownIt(options_update={"highlight": highlight})
 md.add_render_rule("fence", render_fence)
 md.add_render_rule("link_open", render_link_open)
 md.add_render_rule("image", render_image)
+md.add_render_rule("html_block", render_html_block)
 
 
 def render_content(src: str, path: str) -> str:

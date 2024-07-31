@@ -8,6 +8,8 @@ asgiref==3.8.1
     # via
     #   -r base.txt
     #   flask
+beautifulsoup4==4.12.3
+    # via -r base.txt
 blinker==1.8.2
     # via
     #   -r base.txt
@@ -122,6 +124,10 @@ six==1.16.0
     # via
     #   -r base.txt
     #   python-dateutil
+soupsieve==2.5
+    # via
+    #   -r base.txt
+    #   beautifulsoup4
 sqlalchemy[asyncio]==2.0.31
     # via
     #   -r base.txt

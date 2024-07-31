@@ -2,9 +2,11 @@ from pathlib import Path
 
 from flask import Blueprint
 from flask import current_app
+from flask import redirect
 from flask import render_template
 from flask import Response
 from flask import send_from_directory
+from flask import url_for
 from werkzeug.exceptions import NotFound
 
 from . import db
@@ -42,7 +44,6 @@ def page(path: str) -> str | Response:
             return current_app.redirect(current_app.url_for(".page", path=f"{path}/"))
 
     template_path = f"{page_path}/index.html" if obj.is_dir else f"{page_path}.html"
-    print(template_path)
     t = render_template([template_path, "page.html"], page=obj)
     return t
 
@@ -57,7 +58,7 @@ def person(path: str) -> str:
     return render_template("person.html", page=obj)
 
 
-@bp.route("/p/<path>")
+@bp.route("/projects/<path>")
 def project(path: str) -> str:
     obj = db.session.get(models.Project, path)
 
@@ -65,6 +66,11 @@ def project(path: str) -> str:
         raise NotFound()
 
     return render_template("project.html", page=obj)
+
+
+@bp.route("/p/<path>")
+def project_redirect(path: str) -> Response:
+    return redirect(url_for(".project", path=path))
 
 
 @bp.route("/blog/<path:path>")

@@ -6,6 +6,8 @@
 #
 asgiref==3.8.1
     # via flask
+beautifulsoup4==4.12.3
+    # via pallets-web (../pyproject.toml)
 blinker==1.8.2
     # via flask
 click==8.1.7
@@ -27,7 +29,9 @@ itsdangerous==2.2.0
 jinja2==3.1.4
     # via flask
 lxml==5.2.2
-    # via feedgen
+    # via
+    #   feedgen
+    #   pallets-web (../pyproject.toml)
 markdown-it-py==3.0.0
     # via pallets-web (../pyproject.toml)
 markupsafe==2.1.5
@@ -44,6 +48,8 @@ python-dateutil==2.9.0.post0
     # via feedgen
 six==1.16.0
     # via python-dateutil
+soupsieve==2.5
+    # via beautifulsoup4
 sqlalchemy[asyncio]==2.0.31
     # via flask-sqlalchemy-lite
 typing-extensions==4.12.2
