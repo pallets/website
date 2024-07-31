@@ -18,7 +18,7 @@ discuss anything, use the `#get-access` channel to be able to post.
 
 The IRC channel ``#pallets`` on <https://libera.chat> is connected to the
 ``#questions`` channel on Discord. In Discord you'll see a `bot` label for IRC
-users; in IRC you'll see a `Pallets-`` prefix for Discord users.
+users; in IRC you'll see a `Pallets-` prefix for Discord users.
 
 ## GitHub Discussions
 
