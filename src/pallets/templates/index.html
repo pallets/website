@@ -4,7 +4,7 @@
   <section>
     {{ page.content_html | safe }}
   </section>
-  <section style="display: grid; grid-template-columns: repeat(4, 1fr); gap: var();">
+  <section style="display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--pico-spacing);">
     {% for title in ("Flask", "Quart", "Jinja", "Click", "Werkzeug", "ItsDangerous", "MarkupSafe") %}
       {% set name = title.lower() %}
       <p>
