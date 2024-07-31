@@ -9,6 +9,6 @@ source libraries.
 """
 
 [links]
-github = "mitsuhiko"
-twitter = "mitsuhiko"
-website = "http://armin.ronacher.eu/"
+GitHub = "mitsuhiko"
+Twitter = "mitsuhiko"
+Website = "http://armin.ronacher.eu/"

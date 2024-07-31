@@ -4,5 +4,5 @@ location = "New York"
 tags = ["core", "flask", "werkzeug"]
 
 [links]
-github = "jab"
-twitter = "jabronso"
+GitHub = "jab"
+Twitter = "jabronso"

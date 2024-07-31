@@ -3,7 +3,7 @@ nickname = "pgjones"
 tags = ["core", "quart", "flask", "werkzeug"]
 
 [links]
-github = "pgjones"
-website = "https://pgjones.dev/"
-mastodon = "@pgjones@fosstodon.org"
-twitter = "pdgjones"
+GitHub = "pgjones"
+Website = "https://pgjones.dev/"
+Mastodon = "@pgjones@fosstodon.org"
+Twitter = "pdgjones"

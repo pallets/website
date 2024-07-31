@@ -6,7 +6,6 @@ tags = ["core", "flask", "click"]
 alumni = true
 
 [links]
-github = "untitaker"
-mastodon = "@untitaker@woodland.cafe"
-twitter = "untitaker"
-website = "http://armin.ronacher.eu/"
+GitHub = "untitaker"
+Mastodon = "@untitaker@woodland.cafe"
+Twitter = "untitaker"

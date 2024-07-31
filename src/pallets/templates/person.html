@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block page %}
+  <hgroup>
+    {% if page.name %}
+      <h1>{{ page.name }}</h1>
+      <p>{{ page.nickname }}</p>
+    {% else %}
+      <h1>{{ page.nickname }}</h1>
+    {% endif %}
+  </hgroup>
+  <nav>
+    <ul>
+    </ul>
+  </nav>
+  <section>{{ page.content_html | safe }}</section>
+{% endblock %}

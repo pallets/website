@@ -4,6 +4,6 @@ location = "China"
 tags = ["flask"]
 
 [links]
-github = "greyli"
-twitter = "greylihui"
-website = "https://greyli.com"
+GitHub = "greyli"
+Twitter = "greylihui"
+Website = "https://greyli.com"

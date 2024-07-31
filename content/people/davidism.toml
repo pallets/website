@@ -7,6 +7,6 @@ tags = ["core", "flask", "jinja", "click", "werkzeug"]
 lead = true
 
 [links]
-github = "davidism"
-mastodon = "@davidism@mas.to"
-website = "https://davidism.com"
+GitHub = "davidism"
+Mastodon = "@davidism@mas.to"
+Website = "https://davidism.com"
