@@ -47,6 +47,6 @@ may close it or ask you to report a regular issue instead.
 * Automated reports from vulnerability scanners or "AI" tools. Please make it
   clear that you understand what you are reporting and have put personal time
   into crafting the report.
-* Do not report something that has already been fixed and released. Getting a
-  notification from your security scanner that you need to update is not itself
-  a new vulnerability to report.
+* Do not report something that has already been fixed and released; check the
+  project's change log. Getting a notification from your security scanner that
+  you need to update is not itself a new vulnerability to report.
