@@ -66,15 +66,14 @@ class Project(BasePage):
 class BlogPost(BasePage):
     content_prefix = "blog"
     __tablename__ = "blog_post"
+    title: orm.Mapped[str]
     content: orm.Mapped[str]
-    author_path: orm.Mapped[str | None] = orm.mapped_column(sa.ForeignKey(Person.path))
-    author: orm.Mapped[Person | None] = orm.relationship()
+    author_name: orm.Mapped[str]
     published: orm.Mapped[datetime]
-    updated: orm.Mapped[datetime]
+    updated: orm.Mapped[datetime | None]
     tags: orm.Mapped[list[str]] = orm.mapped_column(sa.JSON, default=list)
 
     def __init__(self, **kwargs: t.Any) -> None:
-        kwargs["author_path"] = kwargs.pop("author")
         path = kwargs["path"].partition("/")[2]
         published = kwargs["published"]
         kwargs["path"] = f"{published:%Y/%m}/{path}"

@@ -1,5 +1,6 @@
 from pathlib import Path
 
+import sqlalchemy as sa
 from flask import Blueprint
 from flask import current_app
 from flask import redirect
@@ -73,6 +74,14 @@ def project_redirect(path: str) -> Response:
     return redirect(url_for(".project", path=path))
 
 
+@bp.route("/blog/")
+def blog_index() -> str:
+    posts = db.session.scalars(
+        sa.select(models.BlogPost).order_by(models.BlogPost.published.desc())
+    )
+    return render_template("blog/index.html", posts=posts)
+
+
 @bp.route("/blog/<path:path>")
 def blog_post(path: str) -> str:
     obj = db.session.get(models.BlogPost, path)
@@ -80,4 +89,4 @@ def blog_post(path: str) -> str:
     if obj is None:
         raise NotFound()
 
-    return render_template("blog.html", page=obj)
+    return render_template("blog/post.html", page=obj)

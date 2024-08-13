@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+
+{% block page %}
+  {% for post in posts %}
+    <article>
+      <h3><a href="{{ url_for(".blog_post", path=post.path) }}">{{ post.title }}</a></h3>
+      Posted by {{ post.author_name }} on {{ post.published.strftime("%Y-%m-%d") }}
+    </article>
+  {% endfor %}
+{% endblock %}

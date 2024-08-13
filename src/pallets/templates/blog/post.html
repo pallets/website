@@ -1,0 +1,8 @@
+{% extends "layout.html" %}
+
+{% block page %}
+  <h1>{{ page.title }}</h1>
+  Posted by {{ page.author_name }} on {{ page.published.strftime("%Y-%m-%d") }}
+  <hr>
+  {{ page.content_html | safe }}
+{% endblock %}
