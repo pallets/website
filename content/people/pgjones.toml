@@ -5,5 +5,5 @@ tags = ["core", "quart", "flask", "werkzeug"]
 [links]
 GitHub = "pgjones"
 Website = "https://pgjones.dev/"
-Mastodon = "@pgjones@fosstodon.org"
-Twitter = "pdgjones"
+Mastodon = "https://fosstodon.org/@pgjones"
+Twitter = "https://twitter.com/pdgjones"

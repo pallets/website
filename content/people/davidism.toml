@@ -5,8 +5,11 @@ picture = "davidism.jpg"
 location = "San Diego, California"
 tags = ["core", "flask", "jinja", "click", "werkzeug"]
 lead = true
+content = """I'm a member of the Python community and PSF fellow. I also enjoy
+hiking, scuba diving, ultimate frisbee, and brewing beer.
+"""
 
 [links]
-GitHub = "davidism"
-Mastodon = "@davidism@mas.to"
+GitHub = "https://github.com/davidism"
+Mastodon = "https://mas.to/@davidism"
 Website = "https://davidism.com"

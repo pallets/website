@@ -4,5 +4,5 @@ location = "Switzerland"
 tags = ["core", "flask", "jinja", "click", "werkzeug"]
 
 [links]
-GitHub = "ThiefMaster"
-Twitter = "ThiefMaster"
+GitHub = "https://github.com/ThiefMaster"
+Twitter = "https://twitter.com/ThiefMaster"
