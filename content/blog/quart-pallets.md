@@ -37,13 +37,16 @@ from quart import Quart, render_template, websocket
 
 app = Quart(__name__)
 
+
 @app.route("/")
 async def hello():
     return await render_template("index.html")
 
+
 @app.route("/api")
 async def json():
     return {"hello": "world"}
+
 
 @app.websocket("/ws")
 async def ws():
@@ -55,7 +58,7 @@ async def ws():
 You can read more about Quart at
 [quart.palletsprojects.com](https://quart.palletsprojects.com)
 including a guide to
-[migrating](https://quart.palletsprojects.com/en/latest/how_to_guides/flask_migration.html)
+[migrating](https://quart.palletsprojects.com/page/how_to_guides/flask_migration.html)
 from Flask to Quart.
 
 ## When to use Quart

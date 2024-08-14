@@ -28,5 +28,18 @@ If you cannot upgrade Jinja, you can override the `is_safe_attribute`
 method on the sandbox and explicitly disallow the `format_map`
 method on string objects.
 
+## Reporting Security Issues
 
-Reporting Security Issues
+If you think you have discovered a security issue in Jinja or another of
+the Pallets projects, please email <security@palletsprojects.com> with
+details.
+
+[sandboxed environment]: http://jinja.pocoo.org/docs/2.10/sandbox/
+
+[CVE-2019-10906]: https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-10906
+
+[Brian Welch]: https://brianwel.ch
+
+[Armin Ronacher]: https://twitter.com/mitsuhiko
+
+[Jinja 2.8.1]: ../jinja-281-released/

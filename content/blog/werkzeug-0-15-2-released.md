@@ -6,7 +6,7 @@ tags = ["releases"]
 ~~~~
 
 Werkzeug 0.15.2 has been released. The
-[changelog](https://werkzeug.palletsprojects.com/en/0.15.x/changes/#version-0-15-2)
+[changelog](https://werkzeug.palletsprojects.com/page/changes/#version-0-15-2)
 lists the changes in detail, which include:
 
 * Fix an issue where code generation would cause coverage to fail.
@@ -16,5 +16,8 @@ lists the changes in detail, which include:
 * The "werkzeug" logger doesn't log messages twice if user code has
   already configured logging.
 
+## Install or Upgrade
 
-Install or Upgrade
+Install from [PyPI](https://pypi.org/project/Werkzeug/) with pip:
+
+    pip install -U Werkzeug

@@ -14,13 +14,12 @@ Check out the logs for every project to see what's new. Flask depends on
 the five other libraries, be sure to read them all if you're upgrading
 Flask.
 
-- [Flask 2.0](https://flask.palletsprojects.com/en/2.0.x/changes#version-2-0-0)
-- [Werkzeug 2.0](https://werkzeug.palletsprojects.com/en/2.0.x/changes/#version-2-0-0)
-- [Jinja 3.0](https://jinja.palletsprojects.com/en/3.0.x/changes/#version-3-0-0)
-- [Click 8.0](https://click.palletsprojects.com/en/8.0.x/changes/#version-8-0)
-- [ItsDangerous 2.0](https://itsdangerous.palletsprojects.com/en/2.0.x/changes/#version-2-0-0)
-- [MarkupSafe 2.0](https://markupsafe.palletsprojects.com/en/2.0.x/changes/#version-2-0-0)
-
+- [Flask 2.0](https://flask.palletsprojects.com/page/changes#version-2-0-0)
+- [Werkzeug 2.0](https://werkzeug.palletsprojects.com/page/changes/#version-2-0-0)
+- [Jinja 3.0](https://jinja.palletsprojects.com/page/changes/#version-3-0-0)
+- [Click 8.0](https://click.palletsprojects.com/page/changes/#version-8-0)
+- [ItsDangerous 2.0](https://itsdangerous.palletsprojects.com/page/changes/#version-2-0-0)
+- [MarkupSafe 2.0](https://markupsafe.palletsprojects.com/page/changes/#version-2-0-0)
 
 ## Installing and Upgrading
 
@@ -48,7 +47,6 @@ compatibility as necessary. We encourage you to use tools such as
 [Dependabot](https://dependabot.com/) to pin and control upgrades to
 your dependencies to avoid unexpected changes.
 
-
 ### Renaming the Default Branch
 
 We are joining the PSF, CPython, and Django, among many other projects,
@@ -68,7 +66,6 @@ If you were installing from a GitHub archive URL such as
 `https://github.com/pallets/flask/archive/refs/heads/master.zip`, you'll
 need to rename that link to use "main".
 
-
 ## Release Highlights
 
 These are a few of the great new features and changes to be aware of in
@@ -84,7 +81,7 @@ changes.
       provide better completion and help.
     - Use tools such as pre-commit, black, flake8, and pyupgrade to
       ensure the code and new PRs follow the same style consistently.
-- [Flask 2.0](https://flask.palletsprojects.com/en/2.0.x/changes#version-2-0-0)
+- [Flask 2.0](https://flask.palletsprojects.com/page/changes#version-2-0-0)
     - Support async views and other callbacks such as error handlers,
       defined with `async def`. Regular sync views continue to work
       unchanged. ASGI features such as web sockets are not supported. We
@@ -105,7 +102,7 @@ changes.
       rather than a 12 hour timer. This means changes to static content
       such as CSS styles will be reflected immediately on reload without
       needing to clear the cache.
-- [Werkzeug 2.0](https://werkzeug.palletsprojects.com/en/2.0.x/changes/#version-2-0-0)
+- [Werkzeug 2.0](https://werkzeug.palletsprojects.com/page/changes/#version-2-0-0)
     - Parsing `multipart/form-data` has been optimized and shows a *15x*
       speedup, especially for large file uploads.
     - Locals use Python's `ContextVar` to allow working across async
@@ -131,7 +128,7 @@ changes.
     - The development server avoids showing `0.0.0.0` and warns about
       not running in production.
     - Colors are shown correctly in the server log on Windows.
-- [Jinja 3.0](https://jinja.palletsprojects.com/en/3.0.x/changes/#version-3-0-0)
+- [Jinja 3.0](https://jinja.palletsprojects.com/page/changes/#version-3-0-0)
     - Async environments and rendering no longer requires patching. This
       feature will continue to be improved now that async is natively
       supported.
@@ -144,7 +141,7 @@ changes.
       filter or test is available, to allow optionally using them.
     - I18N supports `pgettext` and `npgettext`.
     - `NativeEnvironment` supports `enable_async` mode.
-- [Click 8.0](https://click.palletsprojects.com/en/8.0.x/changes/#version-8-0)
+- [Click 8.0](https://click.palletsprojects.com/page/changes/#version-8-0)
     - The shell tab completion system has been completely rewritten. It
       now allows every command, group, parameter, and type to provide
       custom completion, supports sending metadata such as the type to
@@ -170,19 +167,18 @@ changes.
       support this automatically.
     - Messages shown to users, such as validation and errors, are marked
       as I18N translatable with `gettext`.
-- [ItsDangerous 2.0](https://itsdangerous.palletsprojects.com/en/2.0.x/changes/#version-2-0-0)
+- [ItsDangerous 2.0](https://itsdangerous.palletsprojects.com/page/changes/#version-2-0-0)
     - Added support for key rotation by passing a list of valid keys
       instead of a single key.
     - `datetime` objects are timezone-aware.
-- [MarkupSafe 2.0](https://markupsafe.palletsprojects.com/en/2.0.x/changes/#version-2-0-0)
+- [MarkupSafe 2.0](https://markupsafe.palletsprojects.com/page/changes/#version-2-0-0)
     - Wheels are provided for 33 Python version / OS / architecture
       combinations, to make installing with speedups easy. Newly added
       are ManyLinux 2014 and OSX Universal 2 wheels.
 
-
 ## Follow and Get Involved
 
-Follow our [blog RSS feed](https://palletsprojects.com/blog/feed.xml)
+Follow our [blog RSS feed](/blog/feed.xml)
 or our [Twitter @PalletsTeam](https://twitter.com/PalletsTeam) to get
 future updates. We also have an official Discord server
 https://discord.gg/pallets for chatting, asking questions, and
@@ -194,15 +190,13 @@ Check out the issue trackers for each project for what to work on.
 Use the *Watch* feature on GitHub see new issues, PRs, and the
 discussions we have around them.
 
-
 ## Donate to Support Our Work
 
 The Pallets organization accepts donations as part of the non-profit
 Python Software Foundation (PSF). Donations through the PSF support our
 efforts to maintain the projects and grow the community.
 
-[Click here to donate. ❤](/donate)
-
+[Click here to donate. ❤](../donate.md)
 
 ### For Enterprise
 
@@ -213,7 +207,6 @@ reduce risk, and improve code health, while paying the maintainers of
 the exact dependencies you use.
 
 [Learn more.](https://tidelift.com/subscription/pkg/pypi-flask?utm_source=pypi-flask&utm_medium=referral&utm_campaign=enterprise&utm_term=repo)
-
 
 ## Thank You!
 

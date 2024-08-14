@@ -41,4 +41,4 @@ growing the community even more.
 
 [**Click here to donate today.**][donate]
 
-[donate]: https://psfmember.org/civicrm/contribute/transact?reset=1&id=20
+[donate]: ../donate.md

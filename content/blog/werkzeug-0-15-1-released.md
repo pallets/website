@@ -9,5 +9,8 @@ Werkzeug 0.15.1 has been released. It fixes a bug in the argument order
 for the `Unauthorzed` HTTP exception. `description` is now the first
 argument again.
 
+## Install or Upgrade
 
-Install or Upgrade
+Install from [PyPI](https://pypi.org/project/Werkzeug/) with pip:
+
+    pip install -U Werkzeug

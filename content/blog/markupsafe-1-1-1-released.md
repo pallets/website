@@ -5,9 +5,11 @@ published = 2019-02-23
 tags = ["releases"]
 ~~~~
 
-This is a bugfix release. [Changelog](https://markupsafe.palletsprojects.com/en/1.1.x/changes/)
+This is a bugfix release. [Changelog](https://markupsafe.palletsprojects.com/page/changes/)
 
-* If an `__html__` method raised an exception, Python would segfault when using MarkupSafe's C speedups. Now the exception will propagate correctly rather than crashing.
+* If an `__html__` method raised an exception, Python would segfault when using
+  MarkupSafe's C speedups. Now the exception will propagate correctly rather than
+  crashing.
 
 ## Install or Upgrade
 

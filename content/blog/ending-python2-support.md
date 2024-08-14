@@ -65,7 +65,11 @@ who has made this transition a reality. We look forward to continuing
 to develop the Pallets projects with you!
 
 [pep]: https://www.python.org/dev/peps/pep-0373/
+
 [community]: https://python3statement.org/
+
 [pytest]: https://docs.pytest.org/en/5.3.2/py27-py34-deprecation.html
+
 [devguide]: https://devguide.python.org/#status-of-python-branches
+
 [psf]: https://www.jetbrains.com/research/python-developers-survey-2018/#python-3-adoption

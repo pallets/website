@@ -8,7 +8,8 @@ tags = ["meta"]
 Flask and many of the other Pallets projects benefit from having a diverse
 ecosystem of user-maintained extensions. However, we recognize that not every
 extension creator can maintain an extension indefinitely. Last year, the
-Pallets team started the [Pallets Community Organization](https://github.com/pallets-eco/),
+Pallets team started
+the [Pallets Community Organization](https://github.com/pallets-eco/),
 aka Pallets-Eco, on GitHub to provide a
 place where the community can work together to maintain the extensions that we
 all rely on.
@@ -19,7 +20,6 @@ already been moved to Pallets-Eco.
 
 In time, we hope that this organization will ensure the stability of the Pallets
 ecosystem and provide a great point of entry for new contributors.
-
 
 ## What Belongs in Pallets-Eco?
 
@@ -36,7 +36,6 @@ The Pallets Community Organization is not currently accepting non-extension
 projects, such as documentation translations. If you are interested in such
 projects, [join the Pallets Discord](https://discord.gg/pallets) and ask about
 the Flask Community Working Group.
-
 
 ## How You Can Transfer Your Extension
 
@@ -59,7 +58,6 @@ to contribute, but other members will have input on pull requests and when
 releases are made. If you prefer to keep your extension completely under your
 control, then Pallets-Eco is not for you.
 
-
 ## Help With Maintenance
 
 Whether you're interested in maintaining one extension in particular or just
@@ -69,7 +67,8 @@ project but haven't seen an issue you are ready to tackle—most of the issues i
 an extension will be smaller in scope and easier to resolve.
 
 All extensions in the Pallets Community Organization follow the same
-[contributing guidelines](https://github.com/pallets/flask/blob/main/CONTRIBUTING.rst) as the core
+[contributing guidelines](https://github.com/pallets/flask/blob/main/CONTRIBUTING.rst)
+as the core
 Pallets projects. Different extensions will come to the organization with
 different testing coverage and documentation completion. To that end, even if
 an extension doesn't have open issues, it's likely you could improve its tests
