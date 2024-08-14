@@ -9,7 +9,6 @@ import sqlalchemy as sa
 import sqlalchemy.orm as orm
 from feedgen.feed import FeedGenerator
 from flask import url_for
-from markupsafe import escape
 
 from . import db
 from . import Model
@@ -79,10 +78,7 @@ class BlogPost(BasePage):
     tags: orm.Mapped[list[str]] = orm.mapped_column(sa.JSON, default=list)
 
     def __init__(self, **kwargs: t.Any) -> None:
-        path = kwargs["path"].partition("/")[2]
-        published = kwargs["published"]
-        kwargs.setdefault("updated", published)
-        kwargs["path"] = f"{published:%Y/%m}/{path}"
+        kwargs.setdefault("updated", kwargs["published"])
         super().__init__(**kwargs)
 
     @classmethod
@@ -111,7 +107,9 @@ class BlogPost(BasePage):
             fe.published(post.published.replace(tzinfo=UTC))
             fe.updated(post.updated.replace(tzinfo=UTC))
             fe.author(name=post.author_name)
-            fe.content(escape(post.content_html), type="html")
+            # This should be escaped according to the Atom spec, but my feed
+            # reader doesn't display that correctly.
+            fe.content(post.content_html, type="html")
             fe.link(
                 href=url_for("core.blog_post", path=post.path, _external=True),
                 rel="alternate",
