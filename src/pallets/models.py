@@ -71,7 +71,7 @@ class BlogPost(BasePage):
     content_prefix = "blog"
     __tablename__ = "blog_post"
     title: orm.Mapped[str]
-    content: orm.Mapped[str]
+    content: orm.Mapped[str]  # pyright: ignore
     author_name: orm.Mapped[str]
     published: orm.Mapped[datetime]
     updated: orm.Mapped[datetime]
@@ -115,7 +115,7 @@ class BlogPost(BasePage):
                 rel="alternate",
             )
 
-        _cached_feed = fg.atom_str(pretty=True).decode()
+        _cached_feed = t.cast(str, fg.atom_str(pretty=True).decode())
         return _cached_feed
 
 

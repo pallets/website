@@ -134,6 +134,22 @@ sqlalchemy[asyncio]==2.0.32
     #   flask-sqlalchemy-lite
 tox==4.18.0
     # via -r dev.in
+types-beautifulsoup4==4.12.0.20240511
+    # via -r typing.txt
+types-docutils==0.21.0.20240724
+    # via
+    #   -r typing.txt
+    #   types-pygments
+types-html5lib==1.1.11.20240806
+    # via
+    #   -r typing.txt
+    #   types-beautifulsoup4
+types-pygments==2.18.0.20240506
+    # via -r typing.txt
+types-setuptools==71.1.0.20240813
+    # via
+    #   -r typing.txt
+    #   types-pygments
 typing-extensions==4.12.2
     # via
     #   -r base.txt

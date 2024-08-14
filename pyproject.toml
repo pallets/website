@@ -35,6 +35,12 @@ show_error_codes = true
 pretty = true
 strict = true
 
+[[tool.mypy.overrides]]
+module = [
+    "feedgen.*",
+]
+ignore_missing_imports = true
+
 [tool.pyright]
 include = ["src/pallets"]
 

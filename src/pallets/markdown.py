@@ -51,7 +51,8 @@ def render_link_open(
     env: dict[str, t.Any],
 ) -> str:
     token = tokens[index]
-    href = _rewrite_link(token.attrs.get("href"), env["content_dir"], True)
+    href = t.cast(str | None, token.attrs.get("href"))
+    href = _rewrite_link(href, env["content_dir"], True)
 
     if href is not None:
         token.attrs["href"] = href
@@ -67,7 +68,8 @@ def render_image(
     env: dict[str, t.Any],
 ) -> str:
     token = tokens[index]
-    src = _rewrite_link(token.attrs.get("src"), env["content_dir"])
+    src = t.cast(str | None, token.attrs.get("src"))
+    src = _rewrite_link(src, env["content_dir"])
 
     if src is not None:
         token.attrs["src"] = src
@@ -88,12 +90,15 @@ def render_html_block(
 
     for attr, page in (("href", True), ("src", False)):
         for tag in soup.find_all(**{attr: True}):
-            ref = _rewrite_link(tag[attr], env["content_dir"], page)
+            ref = t.cast(str | None, tag[attr])
+            ref = _rewrite_link(ref, env["content_dir"], page)
 
             if ref is not None:
                 tag[attr] = ref
 
+    assert soup.html is not None
     soup.html.unwrap()
+    assert soup.body is not None
     soup.body.unwrap()
     token.content = str(soup)
     return renderer.html_block(tokens, index, options, env)
@@ -134,4 +139,4 @@ md.add_render_rule("html_block", render_html_block)
 
 
 def render_content(src: str, path: str) -> str:
-    return md.render(src, {"content_dir": path})
+    return t.cast(str, md.render(src, {"content_dir": path}))

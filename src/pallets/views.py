@@ -1,3 +1,6 @@
+from __future__ import annotations
+
+import typing as t
 from pathlib import Path
 
 import sqlalchemy as sa
@@ -5,9 +8,9 @@ from flask import Blueprint
 from flask import current_app
 from flask import redirect
 from flask import render_template
-from flask import Response
 from flask import send_from_directory
 from flask import url_for
+from werkzeug import Response
 from werkzeug.exceptions import NotFound
 
 from . import db
@@ -93,5 +96,5 @@ def blog_post(path: str) -> str:
 
 
 @bp.route("/blog/feed.xml")
-def blog_feed():
+def blog_feed() -> tuple[str, dict[str, t.Any]]:
     return models.BlogPost.make_feed(), {"content-type": "application/atom+xml"}
