@@ -17,6 +17,7 @@ def create_app() -> Flask:
     app = Flask(__name__)
     app.config.from_mapping(
         SECRET_KEY="dev",
+        SERVER_NAME="127.0.0.1:5000",
         SQLALCHEMY_ENGINES={"default": "sqlite://"},
         FORWARDED=dict(FOR=0, PROTO=0, HOST=0, PORT=0, PREFIX=0),
     )
@@ -27,6 +28,8 @@ def create_app() -> Flask:
     from . import models
     from . import views
     from .load import load_content
+
+    app.register_blueprint(views.bp)
 
     with app.app_context():
         Model.metadata.create_all(db.engine)
@@ -39,8 +42,8 @@ def create_app() -> Flask:
                 "projects": models.Project,
             },
         )
-
-    app.register_blueprint(views.bp)
+        # cache the feed
+        models.BlogPost.make_feed()
 
     forwarded = app.config["FORWARDED"]
 

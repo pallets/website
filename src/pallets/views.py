@@ -90,3 +90,8 @@ def blog_post(path: str) -> str:
         raise NotFound()
 
     return render_template("blog/post.html", page=obj)
+
+
+@bp.route("/blog/feed.xml")
+def blog_feed():
+    return models.BlogPost.make_feed(), {"content-type": "application/atom+xml"}

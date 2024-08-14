@@ -3,8 +3,9 @@
 <head>
   <meta charset=UTF-8>
   <meta name=viewport content="width=device-width, initial-scale=1">
-  <title>{{ title }}</title>
+  <title>Pallets</title>
   <link rel=icon href="/static/pallets.png">
+  <link rel="alternate" type="application/atom+xml" title="Blog" href="{{ url_for(".blog_feed") }}">
   <link rel=stylesheet href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
   <link rel=stylesheet href="/static/style.css">
   {% block extra_head %}{% endblock %}

@@ -3,10 +3,15 @@ from __future__ import annotations
 import posixpath
 import typing as t
 from datetime import datetime
+from datetime import UTC
 
 import sqlalchemy as sa
 import sqlalchemy.orm as orm
+from feedgen.feed import FeedGenerator
+from flask import url_for
+from markupsafe import escape
 
+from . import db
 from . import Model
 from .markdown import render_content
 
@@ -70,11 +75,50 @@ class BlogPost(BasePage):
     content: orm.Mapped[str]
     author_name: orm.Mapped[str]
     published: orm.Mapped[datetime]
-    updated: orm.Mapped[datetime | None]
+    updated: orm.Mapped[datetime]
     tags: orm.Mapped[list[str]] = orm.mapped_column(sa.JSON, default=list)
 
     def __init__(self, **kwargs: t.Any) -> None:
         path = kwargs["path"].partition("/")[2]
         published = kwargs["published"]
+        kwargs.setdefault("updated", published)
         kwargs["path"] = f"{published:%Y/%m}/{path}"
         super().__init__(**kwargs)
+
+    @classmethod
+    def make_feed(cls) -> str:
+        global _cached_feed
+
+        if _cached_feed is not None:
+            return _cached_feed
+
+        posts = db.session.scalars(
+            sa.select(cls).order_by(cls.published.desc()).limit(10)
+        ).all()
+        fg = FeedGenerator()
+        fg.id(url_for("core.blog_index", _external=True))
+        fg.title("Pallets Blog")
+        fg.icon(url_for("static", filename="pallets.png", _external=True))
+        fg.updated(max(p.updated for p in posts).replace(tzinfo=UTC))
+        fg.author(name="Pallets Team")
+        fg.link(href=url_for("core.blog_index", _external=True))
+        fg.link(href=url_for("core.blog_feed", _external=True), rel="self")
+
+        for post in posts:
+            fe = fg.add_entry(order="append")
+            fe.id(url_for("core.blog_post", path=post.path, _external=True))
+            fe.title(post.title)
+            fe.published(post.published.replace(tzinfo=UTC))
+            fe.updated(post.updated.replace(tzinfo=UTC))
+            fe.author(name=post.author_name)
+            fe.content(escape(post.content_html), type="html")
+            fe.link(
+                href=url_for("core.blog_post", path=post.path, _external=True),
+                rel="alternate",
+            )
+
+        _cached_feed = fg.atom_str(pretty=True).decode()
+        return _cached_feed
+
+
+_cached_feed: str | None = None

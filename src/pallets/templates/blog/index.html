@@ -1,6 +1,10 @@
 {% extends "layout.html" %}
 
 {% block page %}
+  <section>
+    <h1>Blog Posts</h1>
+    <p><a href="{{ url_for(".blog_feed") }}">Subscribe using your feed reader</a></p>
+  </section>
   {% for post in posts %}
     <article>
       <h3><a href="{{ url_for(".blog_post", path=post.path) }}">{{ post.title }}</a></h3>
