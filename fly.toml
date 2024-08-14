@@ -2,7 +2,8 @@ app = 'pallets-web'
 primary_region = 'sea'
 
 [env]
-FLASK_SERVER_NAME = 'new.palletsprojects.com'
+FLASK_APP = 'pallets'
+FLASK_SERVER_NAME = 'palletsprojects.com'
 
 [http_service]
 internal_port = 8000
