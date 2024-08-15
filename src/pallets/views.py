@@ -52,8 +52,9 @@ def page(path: str) -> str | Response:
     return t
 
 
-@bp.route("/people/<path>")
+@bp.route("/people/<path:path>")
 def person(path: str) -> str:
+    path = path.removesuffix("/")
     obj = db.session.get(models.Person, path)
 
     if obj is None:
@@ -62,8 +63,9 @@ def person(path: str) -> str:
     return render_template("person.html", page=obj)
 
 
-@bp.route("/projects/<path>")
+@bp.route("/projects/<path:path>")
 def project(path: str) -> str:
+    path = path.removesuffix("/")
     obj = db.session.get(models.Project, path)
 
     if obj is None:
@@ -72,7 +74,7 @@ def project(path: str) -> str:
     return render_template("project.html", page=obj)
 
 
-@bp.route("/p/<path>")
+@bp.route("/p/<path:path>")
 def project_redirect(path: str) -> Response:
     return redirect(url_for(".project", path=path))
 
@@ -87,6 +89,7 @@ def blog_index() -> str:
 
 @bp.route("/blog/<path:path>")
 def blog_post(path: str) -> str:
+    path = path.removesuffix("/")
     obj = db.session.get(models.BlogPost, path)
 
     if obj is None:
