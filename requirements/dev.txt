@@ -16,7 +16,7 @@ blinker==1.8.2
     #   flask
 build==1.2.1
     # via pip-tools
-cachetools==5.4.0
+cachetools==5.5.0
     # via tox
 cfgv==3.4.0
     # via pre-commit
@@ -110,7 +110,7 @@ pyproject-hooks==1.1.0
     # via
     #   build
     #   pip-tools
-pyright==1.1.376
+pyright==1.1.377
     # via -r typing.txt
 python-dateutil==2.9.0.post0
     # via
@@ -146,7 +146,7 @@ types-html5lib==1.1.11.20240806
     #   types-beautifulsoup4
 types-pygments==2.18.0.20240506
     # via -r typing.txt
-types-setuptools==71.1.0.20240813
+types-setuptools==73.0.0.20240822
     # via
     #   -r typing.txt
     #   types-pygments
@@ -162,7 +162,7 @@ virtualenv==20.26.3
     #   tox
 watchdog==4.0.2
     # via -r dev.in
-werkzeug==3.0.3
+werkzeug==3.0.4
     # via
     #   -r base.txt
     #   flask
