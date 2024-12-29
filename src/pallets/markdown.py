@@ -9,6 +9,7 @@ from markdown_it import MarkdownIt
 from markdown_it.renderer import RendererHTML
 from markdown_it.token import Token
 from markdown_it.utils import OptionsDict
+from mdit_py_plugins.anchors import anchors_plugin
 from pygments.formatters.html import HtmlFormatter
 from pygments.lexers import get_lexer_by_name
 
@@ -110,7 +111,7 @@ def _rewrite_link(
     if ref is None:
         return None
 
-    if ref and ref[0] != "/" and ":" not in ref:
+    if ref and ref[0] not in "/#" and ":" not in ref:
         # rewrite relative links to be served by app views
         if (
             allow_page
@@ -132,6 +133,7 @@ def _rewrite_link(
 
 
 md = MarkdownIt(options_update={"highlight": highlight})
+md.use(anchors_plugin, min_level=2, max_level=6, permalink=True)
 md.add_render_rule("fence", render_fence)
 md.add_render_rule("link_open", render_link_open)
 md.add_render_rule("image", render_image)

@@ -15,6 +15,7 @@ dependencies = [
     "gunicorn",
     "lxml",
     "markdown-it-py",
+    "mdit-py-plugins",
     "pygments",
 ]
 

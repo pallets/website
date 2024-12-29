@@ -46,3 +46,15 @@ footer ul li {
   white-space: nowrap;
   border: 0;
 }
+
+a.header-anchor {
+  text-decoration: none;
+}
+
+a.header-anchor > p {
+  display: none;
+}
+
+:is(h1, h2, h3, h4, h5, h6):hover > a.header-anchor > p {
+  display: inline
+}

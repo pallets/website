@@ -64,12 +64,16 @@ lxml==5.3.0
     #   -r base.txt
     #   feedgen
 markdown-it-py==3.0.0
-    # via -r base.txt
+    # via
+    #   -r base.txt
+    #   mdit-py-plugins
 markupsafe==2.1.5
     # via
     #   -r base.txt
     #   jinja2
     #   werkzeug
+mdit-py-plugins==0.4.2
+    # via -r base.txt
 mdurl==0.1.2
     # via
     #   -r base.txt
