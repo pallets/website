@@ -1,10 +1,10 @@
-FROM python:3.12 as build
+FROM python:3.13 as build
 WORKDIR /opt
 RUN python -m venv --upgrade-deps venv
 COPY requirements requirements
 RUN venv/bin/pip install -r requirements/base.txt
 
-FROM python:3.12-slim as deploy
+FROM python:3.13-slim as deploy
 RUN useradd project
 USER project
 EXPOSE 8000
