@@ -117,7 +117,7 @@ def _rewrite_link(
             and (page_ref := ref.removesuffix(".md").removesuffix(".toml")) != ref
         ):
             # remove .md and .toml extensions in links to other pages
-            return f"{content_dir}/{page_ref}".removeprefix("/")
+            return page_ref
         else:
             # other files are served by static content view
             parts = ["/static/content"]
