@@ -6,7 +6,7 @@ tags = ["releases", "security"]
 ~~~~
 
 Werkzeug 0.15.3 has been released, followed closely by 0.15.4. Both fix
-bugs and compatibility issues. The [changelog][] lists the changes in
+bugs and compatibility issues. The [changelog] lists the changes in
 detail, which include:
 
 * The debugger pin is unique per Docker container.

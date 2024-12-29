@@ -6,7 +6,7 @@ tags = ["releases", "security"]
 ~~~~
 
 Werkzeug 0.15.5 has been released, containing bug and security fixes.
-The [changelog][] lists the changes in detail, which include:
+The [changelog] lists the changes in detail, which include:
 
 * `SharedDataMiddleware` safely handles drive names in paths on Windows.
 * The reloader no longer causes an `Exec format error` in many common

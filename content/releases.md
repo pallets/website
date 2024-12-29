@@ -9,7 +9,7 @@ See our [Version Support Policy](versions.md) as well.
 
 ## Notifications
 
-PyPI provides an RSS feed of [release notifications][] for each project. You can
+PyPI provides an RSS feed of [release notifications] for each project. You can
 find it at the top of the "Release history" tab on the project's page.
 
 [release notifications]: https://pypi.org/help/#project-release-notifications
@@ -33,7 +33,7 @@ are being reported.
 ## Security
 
 Building and publishing releases is automated with GitHub workflows and PyPI's
-[Trusted Publisher][] authentication. Team members on GitHub and PyPI are
+[Trusted Publisher] authentication. Team members on GitHub and PyPI are
 required to have 2FA enabled.
 
 [Trusted Publisher]: https://docs.pypi.org/trusted-publishers/
@@ -48,6 +48,6 @@ The context of each build is recorded and signed as SLSA provenance. The
 provenance file can be found on the GitHub release page, usually called
 `multiple.intoto.jsonl`. Eventually, PyPI will support uploading and displaying
 verification for these files. For now, they can be verified manually using
-[slsa-verifier][].
+[slsa-verifier].
 
 [slsa-verifier]: https://github.com/slsa-framework/slsa-verifier

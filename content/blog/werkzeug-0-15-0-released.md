@@ -29,8 +29,8 @@ to understand what changes may affect your code when upgrading.
   URL is logged by the dev server rather than showing percent escapes.
 * Deprecation warnings have been added throughout the code in
   preparation for version 1.0.
-* Werkzeug now uses [pre-commit][], [black][], [reorder-python-imports][],
-  and [flake8][] to provide consistent code formatting. The code also
+* Werkzeug now uses [pre-commit], [black], [reorder-python-imports],
+  and [flake8] to provide consistent code formatting. The code also
   moved to a `src` directory layout.
 * And much more!
 

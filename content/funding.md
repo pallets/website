@@ -1,7 +1,7 @@
 # Funding Sources
 
 Pallets is an open source community organization. We are a part of the Python
-Software Foundation (PSF) as a [fiscal sponsoree][], who help manage our funds
+Software Foundation (PSF) as a [fiscal sponsoree], who help manage our funds
 and provide administrative assistance.
 
 [fiscal sponsoree]: https://www.python.org/psf/fiscal-sponsorees/
@@ -14,7 +14,7 @@ Donate to Pallets through GitHub Sponsors here:
 <https://github.com/sponsors/pallets>
 
 If you or your company already uses GitHub, the easiest way to donate to us may
-be through [GitHub Sponsors][]. You may donate any amount, either one time or on
+be through [GitHub Sponsors]. You may donate any amount, either one time or on
 a schedule.
 
 [GitHub Sponsors]: https://github.com/sponsors
@@ -37,8 +37,8 @@ budget, and then distributes your donation to your dependencies.
 
 ## EthicalAds and Read the Docs
 
-Our documentation is hosted by [Read the Docs][], which shows relevant and
-non-intrusive ads through [EthicalAds][]. Both projects are run by trusted
+Our documentation is hosted by [Read the Docs], which shows relevant and
+non-intrusive ads through [EthicalAds]. Both projects are run by trusted
 members of the Python community.
 
 We receive a portion of advertising revenue on our documentation pages.
@@ -50,7 +50,7 @@ Please consider disabling ad blocking for EthicalAds:
 
 ## Tidelift Enterprise Subscription
 
-[Tidelift][] provides tools, data, and strategies that help organizations
+[Tidelift] provides tools, data, and strategies that help organizations
 assess risk and improve the health, security, and resilience of the open source
 used in their applications.
 

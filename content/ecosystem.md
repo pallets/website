@@ -1,6 +1,6 @@
 # Pallets Community Ecosystem
 
-The [Pallets-Eco][] organization is a collaborative community to share the
+The [Pallets-Eco] organization is a collaborative community to share the
 responsibility of maintaining libraries that work with and extend Pallets
 libraries.
 
@@ -19,7 +19,7 @@ everything themselves.
 
 ## Help Us Grow
 
-The Pallets-Eco organization is based on the successful [JazzBand][]
+The Pallets-Eco organization is based on the successful [JazzBand]
 organization. We're still in the early days of setting up the community, and
 still need to set up guidelines, automation, and other resources for
 contributors and maintainers. If you would like to help with that, please join
@@ -40,7 +40,7 @@ A trusted user will invite you to the GitHub organization.
 If you maintain a well-known extension that of a Pallets library, and need
 assistance with that effort, you can transfer the project to Pallets-Eco.
 
-After joining the organization, you can use [GitHub's transfer feature][] to
+After joining the organization, you can use [GitHub's transfer feature] to
 transfer the repository to the Pallets-Eco organization. You'll retain access,
 and the other organization members will gain access. Only trusted users can make
 releases, so you don't have to worry about security issues.

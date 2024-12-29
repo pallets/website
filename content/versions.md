@@ -16,18 +16,18 @@ See our [Release Policy](releases.md) as well.
 
 ## Version Format
 
-Each project uses versions that follow the [PEP 440][] format. Stable releases
+Each project uses versions that follow the [PEP 440] format. Stable releases
 have three numbers, `A.B.C`. We follow a version scheme similar to Python
 itself.
 
-* The `A` number is considered a "milestone" release. It increases rarely, and
-  indicates a significant change in the project's structure or capabilities.
-* The `B` number is considered a "feature" release. Increasing this number
-  indicates adding new features, and may deprecate existing code or remove
-  previously deprecated code.
-* The `C` number is considered a "fix" release. Increasing this number indicates
-  changes to fix bugs or security issues, and will not intentionally break
-  public APIs.
+-   The `A` number is considered a "milestone" release. It increases rarely, and
+    indicates a significant change in the project's structure or capabilities.
+-   The `B` number is considered a "feature" release. Increasing this number
+    indicates adding new features, and may deprecate existing code or remove
+    previously deprecated code.
+-   The `C` number is considered a "fix" release. Increasing this number
+    indicates changes to fix bugs or security issues, and will not intentionally
+    break public APIs.
 
 ## Public API, Deprecations, and Removals
 
@@ -50,7 +50,7 @@ migrations.
 
 ## Pinning Versions and Constraints
 
-When writing an application, you *must* use a tool like [pip-compile][] to pin
+When writing an application, you *must* use a tool like [pip-compile] to pin
 your application's full dependency tree. This gives you reproducible
 deployments, allowing you to control when you get updates.
 
@@ -75,11 +75,11 @@ versions as `major.major.patch` if you need to use SemVer in other contexts.
 
 Please see any of the following resources for more information:
 
-* <https://hynek.me/articles/semver-will-not-save-you/>
-* <https://www.youtube.com/watch?v=WSVFw-3ssXM&t>
-* <https://snarky.ca/why-i-dont-like-semver/>
-* <https://caremad.io/posts/2016/02/versioning-software/>
-* <https://bernat.tech/posts/version-numbers/>
-* <https://iscinumpy.dev/post/bound-version-constraints/>
+-   <https://hynek.me/articles/semver-will-not-save-you/>
+-   <https://www.youtube.com/watch?v=WSVFw-3ssXM&t>
+-   <https://snarky.ca/why-i-dont-like-semver/>
+-   <https://caremad.io/posts/2016/02/versioning-software/>
+-   <https://bernat.tech/posts/version-numbers/>
+-   <https://iscinumpy.dev/post/bound-version-constraints/>
 
 [PEP 440]: https://peps.python.org/pep-0440/
