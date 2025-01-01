@@ -3,10 +3,15 @@
 Every project uses the same project layout and tools. It is helpful to be aware
 of them and their documentation when contributing.
 
+Keeping every project consistent makes it easy for people to move between
+projects. The more a project begins to diverge, the more likely it is to
+cause an issue at an inopportune time. If something here is changed in one
+project, it should be applied to all others as well.
+
 ## Requirements Files
 
-Each development environment uses a requirements file and the [pip-tools][] and
-[pip-compile-multi][] tools to pin versions. This ensures that tests and builds
+Each development environment uses a requirements file and the [pip-tools] and
+[pip-compile-multi] tools to pin versions. This ensures that tests and builds
 are reproducible when setting up a new environment or looking at previous tags.
 
 The `requirements` folder contains `.in` files that list the direct, unpinned
@@ -20,16 +25,16 @@ We do not use Dependabot to update these files as it is too noisy.
 
 ## Tests
 
-[pytest][] is used to run the tests, found in the `tests` folder.
+[pytest] is used to run the tests, found in the `tests` folder.
 
-[tox][] is used to run different test environments, including Python versions,
+[tox] is used to run different test environments, including Python versions,
 style checks, documentation, and typing. The `tox.ini` file configures this.
 
-We do not currently run [coverage][]. While our test suite is fairly robust,
+We do not currently run [coverage]. While our test suite is fairly robust,
 we don't have consistent enough coverage to make the reports useful at this
 time. We found that it does not impact our release quality.
 
-[mypy][] is used for static type checking. Other tools may not give the same
+[mypy] is used for static type checking. Other tools may not give the same
 results.
 
 See [here](tests.md) for information about writing, running, and improving
@@ -42,12 +47,12 @@ tests and test coverage.
 
 ## Documentation
 
-[Sphinx][] is used to build the documentation. The `docs` folder contains `.rst`
-files, which are [ReStructuredText][].
+[Sphinx] is used to build the documentation. The `docs` folder contains `.rst`
+files, which are [ReStructuredText].
 
-[Pallets-Sphinx-Themes][] contains the designs and extensions the projects use.
+[Pallets-Sphinx-Themes] contains the designs and extensions the projects use.
 
-The docs are built and hosted on [Read the Docs][]. It will also check that the
+The docs are built and hosted on [Read the Docs]. It will also check that the
 docs build for pull requests.
 
 See [here](docs.md) for information about writing and building documentation.
@@ -58,21 +63,21 @@ See [here](docs.md) for information about writing and building documentation.
 
 ## Code Style
 
-Code style tools are run automatically on each commit using [pre-commit][].
+Code style tools are run automatically on each commit using [pre-commit].
 The `.pre-commit-config.yaml` file pins the versions of each tool.
-[pre-commit.ci][] runs these checks and commits fixes automatically on pull
+[pre-commit.ci] runs these checks and commits fixes automatically on pull
 requests. It will also make PRs to update the pinned versions each month.
 
 See [setup](setup.md) for how to enable pre-commit.
 
-[black][] enforces code formatting.
+[black] enforces code formatting.
 
-[flake8][] enforces style "lint" rules. [flake8-bugbear][] catches more
+[flake8] enforces style "lint" rules. [flake8-bugbear] catches more
 opinionated rules.
 
-[pyupgrade][] enforces using modern syntax for the Python versions we support.
+[pyupgrade] enforces using modern syntax for the Python versions we support.
 
-[reorder_python_imports][] enforces a standard format and order for all imports
+[reorder_python_imports] enforces a standard format and order for all imports
 at the top of files.
 
 [pre-commit]: https://pre-commit.com

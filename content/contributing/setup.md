@@ -1,44 +1,52 @@
 # Development Environment Setup
 
-## GitHub Codespaces
+This is a detailed guide on how to set up Python, Git, and a development
+environment for our projects. Each of our projects uses the same layout, making
+it easier to move between projects. Following these instructions will ensure
+that every contributor has the same tools installed at the same versions in the
+same way, which makes it easier for everyone to help each other.
 
-[GitHub Codespaces][] creates a development environment that is already set up
-for the project. By default it opens in Visual Studio Code for the Web, but this
-can be changed in your GitHub profile settings to use Visual Studio Code or
-JetBrains PyCharm on your local computer.
+If you're already familiar with contributing to Python projects, you can refer
+to the [Quick Reference](quick.md) instead.
 
--   Make sure you have a [GitHub account][].
--   From the project's repository page, click the green "Code" button and then
-    "Create codespace on main".
--   The codespace will be set up, then Visual Studio Code will open. However,
-    you'll need to wait a bit longer for the Python extension to be installed.
-    You'll know it's ready when the terminal at the bottom shows that the
-    virtualenv was activated.
--   Check out a new branch and start coding.
+[venv]: https://docs.python.org/3/library/venv.html
+[pip]: https://pip.pypa.io
 
-## Local Environment
+## GitHub and Git
 
--   Make sure you have a [GitHub account][].
--   Download and install the [latest version of git][].
--   Configure git with your [username][] and [email][]. GitHub provides everyone
-    a placeholder email if you don't want to publish yours.
+- Make sure you have a [GitHub account][github].
+-   Download and install the [latest version of Git][git].
+-   Configure Git with your [name] and [email].
     ```
     $ git config --global user.name 'your name'
     $ git config --global user.email 'your email'
     ```
--   [Fork][] the project to your GitHub account by clicking the "Fork" button.
+    -
+-   [Fork] the project to your GitHub account by clicking the "Fork" button.
 -   Clone your fork locally, replacing `your-username` and `project` in the
-    command below with your actual username and the actual project name.
+    command below with your actual username and the actual project name. Change
+    directory into the cloned project.
     ```
     $ git clone https://github.com/your-username/project
     $ cd project
     ```
--   Create a virtualenv. Use the latest version of Python.
+-   Install the latest version of Python.
+    -   Linux: `python3` is likely already installed, otherwise use your
+        system's package manager to install it.
+    -   macOS/Windows: Download and run the appropriate installer from
+        https://python.org/downloads/. The yellow "Download" button near the top
+        left of the page will download the latest stable version.
+-   Create and activate a virtualenv. Use the latest version of Python.
     -   Linux/macOS
         ```
         $ python3 -m venv .venv
         $ . .venv/bin/activate
         ```
+        -   On Ubuntu or Debian, you'll need to install `venv` first, otherwise
+            the above command will fail.
+            ```
+            $ sudo apt install python3-venv
+            ```
     -   Windows
         ```
         > py -3 -m venv .venv
@@ -49,14 +57,24 @@ JetBrains PyCharm on your local computer.
     ```
     $ pip install -r requirements/dev.txt && pip install -e .
     ```
+    -   On Windows CMD, `&&` doesn't work, so run the two commands separately.
 -   Install the pre-commit hooks.
     ```
     $ pre-commit install --install-hooks
     ```
 
-[GitHub Codespaces]: https://docs.github.com/en/codespaces
-[GitHub account]: https://github.com/join
-[latest version of git]: https://git-scm.com/downloads
-[username]: https://docs.github.com/en/github/using-git/setting-your-username-in-git
-[email]: https://docs.github.com/en/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address
+[github]: https://github.com
+[git]: https://git-scm.com/downloads
+[name]: https://docs.github.com/en/get-started/getting-started-with-git/setting-your-username-in-git
+[email]: https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address
 [Fork]: https://docs.github.com/en/get-started/quickstart/fork-a-repo
+
+## Debugger
+
+Many IDEs, including [PyCharm] and [VS Code], include a debugger UI. There are also
+standalone debuggers such as [pudb], [pdbp], [ipdb], and [bpdb].
+
+[pudb]: https://github.com/inducer/pudb#readme
+[pdbp]: https://github.com/mdmintz/pdbp#readme
+[ipdb]: https://github.com/gotcha/ipdb#readme
+[bpdb]: https://docs.bpython-interpreter.org/en/latest/bpdb.html

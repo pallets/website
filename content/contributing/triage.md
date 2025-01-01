@@ -7,10 +7,10 @@ make; this page is a loose collection of guidelines to keep in mind. Close
 issues or ask for clarification as needed.
 
 Determine if the issue is with the Pallets library. Issues with the user's own
-code should be asked as [questions][] instead, use the "Convert to
-discussion" link at the bottom of the sidebar. Issues with another library,
-often indicated by a traceback pointing to other code, should be reported to
-that library instead.
+code should be asked as [questions] instead, use the "Convert to discussion"
+link at the bottom of the sidebar. Issues with another library, often indicated
+by a traceback pointing to other code, should be reported to that library
+instead.
 
 [questions]: questions.md
 
@@ -30,9 +30,9 @@ succinctly and directly, without "tags" like `[feature]`, and without versions.
 Search for existing issues. Searching excludes closed issues by default, and
 users often miss this, especially when reporting bugs after new releases. Close
 duplicate issues with a link to the duplicate. If an issue should remain open,
-it's still useful to link to relevant prior discussions and PRs. If the issue
-is with another library, try check if it's already been reported there and link
-that, or suggest that the user does so.
+it's still useful to link to relevant prior discussions and PRs. If the issue is
+with another library, check if it's already been reported there and link that,
+or suggest that the user does so.
 
 Add tags to indicate what component the issue is related to. We don't use a
 "bug" or "feature" tag, but we do use tags like "docs", "debugger", "windows",
@@ -45,9 +45,9 @@ once it is known make sure it is recorded. If a milestone does not exist for the
 next version yet, create one.
 
 Some issues may be closed by our policies published on this site. Issues with
-deprecations and removals should be linked to [Version Policy][]. Issues asking
-for a new release should be linked to [Release Policy][]. If a user posts a
-security issue publicly, link to [Security Policy][] and ping a core maintainer.
+deprecations and removals should be linked to [Version Policy]. Issues asking
+for a new release should be linked to [Release Policy]. If a user posts a
+security issue publicly, link to [Security Policy] and ping a core maintainer.
 
 [Version Policy]: ../versions.md
 [Release Policy]: ../releases.md
