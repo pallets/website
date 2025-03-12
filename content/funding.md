@@ -61,10 +61,3 @@ return, Pallets follows Tidelift's guidelines for keeping up-to-date information
 and security practices.
 
 [Tidelift]: https://tidelift.com
-
-## thanks.dev Subscription
-
-[thanks.dev] analyzes your project's dependency tree, allows you to choose a
-budget, and then distributes your donation to your dependencies.
-
-[thanks.dev]: https://thanks.dev
