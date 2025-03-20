@@ -37,12 +37,17 @@ A trusted user will invite you to the GitHub organization.
 
 ## Transferring a Project
 
-If you maintain a well-known extension that of a Pallets library, and need
-assistance with that effort, you can transfer the project to Pallets-Eco.
+If you maintain a well-known library that extends or is adjacent to a Pallets library,
+and need assistance with that effort, you can transfer the project to Pallets-Eco.
 
 After joining the organization, you can use [GitHub's transfer feature] to
 transfer the repository to the Pallets-Eco organization. You'll retain access,
 and the other organization members will gain access. Only trusted users can make
 releases, so you don't have to worry about security issues.
+
+You'll also need to transfer the project on PyPI, Test PyPI, Read the Docs, and any
+other services related to maintenance of the project. You can transfer PyPI, Test PyPI,
+and Read the Docs to the Pallets lead maintainer, whose username is `davidism` on
+those platforms. For other services, please coordinate with us on Discord.
 
 [GitHub's transfer feature]: https://docs.github.com/en/repositories/creating-and-managing-repositories/transferring-a-repository
