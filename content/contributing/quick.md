@@ -32,6 +32,11 @@ $ git switch -c short-descriptive-name
 
 ## Install Development Dependencies
 
+Projects are being converted to use `uv`. The easy way to identify if that has occurred
+is the existence, or not, of a `requirements` directory in root pf the project.
+
+### Projects with a `requirements` directory
+
 Create a virtualenv and activate it. Install the dev dependencies, and the
 project in editable mode. Install the pre-commit hooks.
 
@@ -58,6 +63,31 @@ $ pre-commit install --install-hooks
 
 Any time you open a new terminal, you need to activate the virtualenv again. If
 you've pulled from upstream recently, you can re-run the `pip` command above to
+get the current dev dependencies.
+
+
+### Projects without a `requirements` directory
+
+[Install `uv`]
+
+Run the `uv sync` command.
+
+[Install `uv`]: https://docs.astral.sh/uv/getting-started/installation/
+
+Load the virtual environment (Mac and Linux):
+
+```
+$ . .venv/bin/activate
+```
+
+Load the virtualenv (Windows):
+
+```
+> .\.venv\Scripts\activate
+```
+
+Any time you open a new terminal, you need to activate the virtualenv again. If
+you've pulled from upstream recently, you can re-run the `uv sync` command to
 get the current dev dependencies.
 
 ## Run Tests
