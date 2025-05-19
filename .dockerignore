@@ -1,7 +1,7 @@
 *
 !content/
-!requirements/
 !src/
+!uv.lock
 !.flaskenv
 !gunicorn_conf.py
 !LICENSE.txt

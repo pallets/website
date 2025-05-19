@@ -18,6 +18,23 @@ dependencies = [
     "mdit-py-plugins",
     "pygments",
 ]
+[dependency-groups]
+dev = [
+    "ruff",
+    "tox",
+    "tox-uv",
+    "python-dotenv",
+    "watchdog",
+]
+pre-commit= [
+    "pre-commit",
+]
+typing= [
+    "mypy",
+    "pyright",
+    "types-beautifulsoup4",
+    "types-pygments",
+]
 
 [project.urls]
 Home = "https://palletsprojects.com"
@@ -65,3 +82,46 @@ select = [
 [tool.ruff.lint.isort]
 force-single-line = true
 order-by-type = false
+
+[tool.uv]
+default-groups = ["dev", "pre-commit", "typing"]
+
+[tool.tox]
+envlist = ["style", "typing"]
+
+[tool.tox.env.env_run_base]
+package = "wheel"
+wheel_build_env = ".pkg"
+constrain_package_deps = true
+use_frozen_constraints = true
+
+[tool.tox.env.style]
+dependency_groups = ["pre-commit"]
+skip_install = true
+commands = [["pre-commit", "run", "--all-files"]]
+
+[tool.tox.env.typing]
+dependency_groups = ["typing"]
+commands = [
+    ["mypy"],
+    ["pyright"]
+]
+
+[tool.tox.env.update-actions]
+labels = ["update"]
+dependency_groups = ["gha-update"]
+commands = [["gha-update"]]
+
+[tool.tox.env.update-pre_commit]
+labels = ["update"]
+dependency_groups = ["pre-commit"]
+skip_install = true
+commands = [["pre-commit", "autoupdate", "-j4"]]
+
+[tool.tox.env.update-requirements]
+description = "update uv lock"
+labels = ["update"]
+dependency_groups = []
+no_default_groups = true
+skip_install = true
+commands = [["uv", "lock", {replace = "posargs", default = ["-U"], extend = true}]]
