@@ -68,19 +68,23 @@ get the current dev dependencies.
 
 ### Projects without a `requirements` directory
 
-[Install `uv`]
+[Install `uv`.][uv]
 
-Run the `uv sync` command.
+[uv]: https://docs.astral.sh/uv/getting-started/installation/
 
-[Install `uv`]: https://docs.astral.sh/uv/getting-started/installation/
+Install dev dependencies:
 
-Load the virtual environment (Mac and Linux):
+```
+$ uv sync
+```
+
+Activate the virtualenv (Mac and Linux):
 
 ```
 $ . .venv/bin/activate
 ```
 
-Load the virtualenv (Windows):
+Activate the virtualenv (Windows):
 
 ```
 > .\.venv\Scripts\activate
