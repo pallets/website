@@ -94,7 +94,9 @@ class BlogPost(BasePage):
         fg = FeedGenerator()
         fg.id(url_for("core.blog_index", _external=True))
         fg.title("Pallets Blog")
-        fg.icon(url_for("static", filename="pallets.png", _external=True))
+        fg.icon(
+            url_for("static", filename="pallets-logo-bg-padding.png", _external=True)
+        )
         fg.updated(max(p.updated for p in posts).replace(tzinfo=UTC))
         fg.author(name="Pallets Team")
         fg.link(href=url_for("core.blog_index", _external=True))
