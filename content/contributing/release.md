@@ -73,7 +73,7 @@ tests pass, and that the build passes, by looking at the standard PR checks UI.
 1.  Check out the `main` or `stable` branch depending on what release you're
     making.
 2.  Check out a new branch with the name `release-A.B.C`, for example
-    `release-{3.2.0}`.
+    `release-3.2.0`.
 3.  Update `CHANGES.md` to change `Unreleased` to `Released YYYY-MM-DD`, for
     example `Released 2024-08-04`.
 4.  Update `pyproject.toml` to change `[project].version`, removing the `.dev`
@@ -93,10 +93,9 @@ start the build process by pushing a tag.
 
 The `publish.yaml` workflow will start to run and you'll see build-related
 checks show up in the PR checks UI. First, it builds the sdist and wheel. Then
-it generates an SLSA attestation for those files. Then it creates a draft
-release and uploads the build and attestation file to it. Finally, you'll see it
-waiting for approval to upload to PyPI. Don't approve it yet, there's more to do
-first.
+it creates a draftrelease and uploads the built files to it. Finally, you'll
+see it waiting for approval to upload to PyPI. Don't approve it yet, there's
+more to do first.
 
 ## Prepare the Release Message
 
@@ -116,37 +115,29 @@ format:
 For feature releases, the explanation is:
 
 ```markdown
-This is the {project} {version} feature release. A feature release may include
-new features, remove previously deprecated code, add new deprecations, or
-introduce potentially breaking changes.
+This is the {project} {version} feature release. A feature release may include new features, remove previously deprecated code, add new deprecations, or introduce potentially breaking changes.
 
-We encourage everyone to upgrade. You can read more about our
-[Version Support Policy][version] on our website.
+We encourage everyone to upgrade. You can read more about our [Version Support Policy][version] on our website.
 
 [version]: https://palletsprojects.com/versions
 
 PyPI: https://pypi.org/project/{pypi name}/{version}/
-Changes: https://{project}.readthedocs.io/en/stable/changes/#version-{A-B-C}
-Milestone https://github.com/pallets-eco/{project}/milestones/{milestone}?closed=1
+Changes: https://{project}.readthedocs.io/page/changes/#version-{A-B-C}
+Milestone https://github.com/pallets-eco/{project}/milestone/{milestone}?closed=1
 
 {change entries, markdown, replace links}
 
-Please remember, applications _must_ lock their full dependency tree to control
-when updates are installed and ensure reproducible deployments. Use one of the
-various project management or lock tools available in the Python ecosystem. Test
-with warnings treated as errors to be able to adapt to deprecation warnings early.
+Please remember, applications _must_ lock their full dependency tree to control when updates are installed and ensure reproducible deployments. Use one of the various project management or lock tools available in the Python ecosystem. Test with warnings treated as errors to be able to adapt to deprecation warnings early.
 ```
 
 For fix releases, the explanation is:
 
 ```markdown
-This is the {project} {version} fix release, which fixes bugs but does not
-otherwise change behavior and should not result in breaking changes compared to
-the latest feature release.
+This is the {project} {version} fix release, which fixes bugs but does not otherwise change behavior and should not result in breaking changes compared to the latest feature release.
 
 PyPI: https://pypi.org/project/{pypi name}/{version}/
-Changes: https://{project}.readthedocs.io/en/stable/changes/#version-{A-B-C}
-Milestone https://github.com/pallets-eco/{project}/milestones/{milestone}?closed=1
+Changes: https://{project}.readthedocs.io/page/changes/#version-{A-B-C}
+Milestone https://github.com/pallets-eco/{project}/milestone/{milestone}?closed=1
 
 {change entries, markdown, replace links}
 ```
