@@ -15,7 +15,7 @@ checklist.
 6.  Remove the ".dev" suffix from the version in `pyproject.toml`.
 7.  Commit `git commit -am 'release version A.B.C'` and create a PR.
 8.  Tag `git tag -am 'release version A.B.C' A.B.C` and push
-    `git push origin A.B.C`.
+    `git push upstream A.B.C`.
 9.  Watch the tests pass and build jobs begin.
 10. Edit the generated draft release page with our standard message template.
 11. Approve the upload job.
