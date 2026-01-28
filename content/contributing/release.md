@@ -123,7 +123,7 @@ We encourage everyone to upgrade. You can read more about our [Version Support P
 
 PyPI: https://pypi.org/project/{pypi name}/{version}/
 Changes: https://{project}.readthedocs.io/page/changes/#version-{A-B-C}
-Milestone https://github.com/pallets-eco/{project}/milestone/{milestone}?closed=1
+Milestone: https://github.com/pallets-eco/{project}/milestone/{milestone}?closed=1
 
 {change entries, markdown, replace links}
 
@@ -137,7 +137,7 @@ This is the {project} {version} fix release, which fixes bugs but does not other
 
 PyPI: https://pypi.org/project/{pypi name}/{version}/
 Changes: https://{project}.readthedocs.io/page/changes/#version-{A-B-C}
-Milestone https://github.com/pallets-eco/{project}/milestone/{milestone}?closed=1
+Milestone: [https://github.com/pallets-eco/{project}/milestone/{milestone}?closed=1](https://github.com/pallets-eco/{project}/milestone/{milestone}?closed=1)
 
 {change entries, markdown, replace links}
 ```
