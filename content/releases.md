@@ -18,6 +18,11 @@ GitHub sends a notification each time a release page is created. You can click
 "Watch" on a repository and customize to only receive release notifications. It
 also provides an Atom/RSS feed, by appending `.atom` to the releases page URL.
 
+Seeing the version on PyPI or the GitHub release page indicates that the version
+has been released. Tags are used to trigger the build process, and may be pushed
+again if issues come up during the release workflow. Therefore, you should not
+rely on git tags to indicate that the release has been published.
+
 ## Schedule
 
 The Pallets team works on releases as their time permits. No one works full time
@@ -37,17 +42,3 @@ Building and publishing releases is automated with GitHub workflows and PyPI's
 required to have 2FA enabled.
 
 [Trusted Publisher]: https://docs.pypi.org/trusted-publishers/
-
-[Supply-chain Levels for Software Artifacts (SLSA)][slsa] is a relatively new
-framework for build and distribution security. We are gradually adopting it as
-support and understanding in the Python community grows.
-
-[slsa]: https://slsa.dev/
-
-The context of each build is recorded and signed as SLSA provenance. The
-provenance file can be found on the GitHub release page, usually called
-`multiple.intoto.jsonl`. Eventually, PyPI will support uploading and displaying
-verification for these files. For now, they can be verified manually using
-[slsa-verifier].
-
-[slsa-verifier]: https://github.com/slsa-framework/slsa-verifier
