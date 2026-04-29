@@ -51,8 +51,9 @@ def load_config(config_path: Path = Path("config.toml")) -> Settings:
     if not config_path.is_file():
         raise ConfigError(
             f"Configuration file not found at '{config_path}'.\n"
-            "Hint: Make sure the file exists. You might need to create one from an "
-            "example template like 'config.example.toml'."
+            "Hint: Check that the file exists at this path. You may need to create it "
+            "from a template (e.g., 'config.example.toml') or specify the correct "
+            "path via a command-line argument or environment variable."
         )
 
     # Pain Point 2: The file exists but is malformed (e.g., invalid TOML).
@@ -63,13 +64,18 @@ def load_config(config_path: Path = Path("config.toml")) -> Settings:
     except tomllib.TOMLDecodeError as e:
         raise ConfigError(
             f"Error parsing '{config_path}':\n"
-            f"  {e}\n"
-            "Hint: Check the file for syntax errors like missing quotes, "
-            "incorrect formatting, or invalid characters."
+            f"  {e}\n\n"
+            "Hint: This looks like a TOML syntax error. Common issues include "
+            "unclosed quotes for strings or misplaced brackets. Please double-check "
+            "the line mentioned in the error above."
         )
     except OSError as e:
         # Also handle cases where the file can't be read due to permissions.
-        raise ConfigError(f"Could not read configuration file '{config_path}': {e}")
+        raise ConfigError(
+            f"Could not read configuration file '{config_path}': {e}\n"
+            "Hint: Please check the file's permissions and ensure the application "
+            "has read access."
+        )
 
     # Pain Points 3 & 4: Missing required keys or values of the wrong type.
     # Pydantic handles this validation, but we can format its error for clarity.
@@ -87,7 +93,9 @@ def load_config(config_path: Path = Path("config.toml")) -> Settings:
         formatted_errors = "\n".join(error_messages)
         raise ConfigError(
             f"Configuration in '{config_path}' is invalid:\n"
-            f"{formatted_errors}\n"
-            "Hint: Please check the values in your configuration file and ensure they "
-            "match the expected types and requirements."
+            f"{formatted_errors}\n\n"
+            "Hint: Please review the errors above and correct your configuration file. For example:\n"
+            "  - 'api_key' must be a non-empty string.\n"
+            "  - 'timeout' must be a whole number greater than 0.\n"
+            "  - 'log_level' must be one of: DEBUG, INFO, WARNING, ERROR, CRITICAL."
         )
