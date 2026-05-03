@@ -1,13 +1,14 @@
-import sys
 import tomllib
 from pathlib import Path
-from typing import Optional
 
-from pydantic import BaseModel, Field, ValidationError
+from pydantic import BaseModel
+from pydantic import Field
+from pydantic import ValidationError
 
 
 class ConfigError(Exception):
     """Custom exception for configuration-related errors."""
+
     pass
 
 
@@ -16,6 +17,7 @@ class Settings(BaseModel):
     Defines the application's configuration structure using Pydantic.
     This ensures that all configuration values are of the correct type.
     """
+
     api_key: str = Field(..., description="The API key for the primary service.")
     timeout: int = Field(
         default=30, gt=0, description="Default timeout for API requests in seconds."
@@ -25,7 +27,7 @@ class Settings(BaseModel):
         pattern=r"^(DEBUG|INFO|WARNING|ERROR|CRITICAL)$",
         description="Logging level (e.g., DEBUG, INFO, WARNING).",
     )
-    database_url: Optional[str] = Field(
+    database_url: str | None = Field(
         default=None, description="Optional database connection URL."
     )
 
