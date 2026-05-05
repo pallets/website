@@ -1,0 +1,8 @@
+{% macro page_links(view_url, edit_url) %}
+<a href="{{ edit_url }}" class="edit-this-page" title="Edit this page on GitHub" aria-label="Edit this page on GitHub">
+    {% include "icons/pencil.svg" %}
+</a>
+<a href="{{ view_url }}" class="edit-this-page" title="View this page on GitHub" aria-label="View this page on GitHub">
+    {% include "icons/eye.svg" %}
+</a>
+{% endmacro %}

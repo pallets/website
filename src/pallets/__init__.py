@@ -20,6 +20,7 @@ def create_app() -> Flask:
         SERVER_NAME="127.0.0.1:5000",
         SQLALCHEMY_ENGINES={"default": "sqlite://"},
         FORWARDED=dict(FOR=0, PROTO=0, HOST=0, PORT=0, PREFIX=0),
+        GITHUB_REPO="https://github.com/pallets/website",
     )
     app.config.from_prefixed_env()
 
