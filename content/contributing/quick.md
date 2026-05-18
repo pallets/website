@@ -94,6 +94,12 @@ Any time you open a new terminal, you need to activate the virtualenv again. If
 you've pulled from upstream recently, you can re-run the `uv sync` command to
 get the current dev dependencies.
 
+Install the pre-commit hooks:
+
+```
+$ pre-commit install --install-hooks
+```
+
 ## Run Tests
 
 These are the essential test commands you can run while developing:
