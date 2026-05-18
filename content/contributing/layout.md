@@ -68,7 +68,7 @@ The `.pre-commit-config.yaml` file pins the versions of each tool.
 [pre-commit.ci] runs these checks and commits fixes automatically on pull
 requests. It will also make PRs to update the pinned versions each month.
 
-See [setup](setup.md) for how to enable pre-commit.
+See [contributing reference](quick.md) for how to enable pre-commit.
 
 [black] enforces code formatting.
 

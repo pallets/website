@@ -1,10 +1,6 @@
 # Development Environment Setup
 
-This is a detailed guide on how to set up Python, Git, and a development
-environment for our projects. Each of our projects uses the same layout, making
-it easier to move between projects. Following these instructions will ensure
-that every contributor has the same tools installed at the same versions in the
-same way, which makes it easier for everyone to help each other.
+This is a detailed guide on how to set up Python and Git.
 
 If you're already familiar with contributing to Python projects, you can refer
 to the [Quick Reference](quick.md) instead.
@@ -36,32 +32,6 @@ to the [Quick Reference](quick.md) instead.
     -   macOS/Windows: Download and run the appropriate installer from
         https://python.org/downloads/. The yellow "Download" button near the top
         left of the page will download the latest stable version.
--   Create and activate a virtualenv. Use the latest version of Python.
-    -   Linux/macOS
-        ```
-        $ python3 -m venv .venv
-        $ . .venv/bin/activate
-        ```
-        -   On Ubuntu or Debian, you'll need to install `venv` first, otherwise
-            the above command will fail.
-            ```
-            $ sudo apt install python3-venv
-            ```
-    -   Windows
-        ```
-        > py -3 -m venv .venv
-        > .venv\Scripts\activate
-        ```
--   Install the development dependencies, then install Flask in editable mode.
-    In the future, you can run this again to update the dependencies.
-    ```
-    $ pip install -r requirements/dev.txt && pip install -e .
-    ```
-    -   On Windows CMD, `&&` doesn't work, so run the two commands separately.
--   Install the pre-commit hooks.
-    ```
-    $ pre-commit install --install-hooks
-    ```
 
 [github]: https://github.com
 [git]: https://git-scm.com/downloads

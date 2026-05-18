@@ -9,7 +9,7 @@ issue is not marked as assigned (in the sidebar) and is not already linked to an
 open PR. Do not ask to be assigned to an issue. Maintainers only use assignment
 for themselves or during live sprints to avoid conflicting work.
 
-Check [Environment Setup](setup.md) or [Quick Reference](quick.md) for how to
+Check [Contributing Reference](quick.md) for how to
 set up your development environment and run tests. This guide assumes you've
 done that and used the GitHub CLI to fork and clone the repository and add the
 upstream remote.
