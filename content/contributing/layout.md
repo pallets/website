@@ -8,6 +8,43 @@ projects. The more a project begins to diverge, the more likely it is to
 cause an issue at an inopportune time. If something here is changed in one
 project, it should be applied to all others as well.
 
+## Standard Layout
+
+* root 
+    * .devcontainer 
+    * .github 
+        * ISSUE_TEMPLATE
+            * bug-report.md 
+            * config.yml
+            * feature-request
+        * workflows 
+            * lock.yml
+            * pre-commit.yml 
+            * publish.yml
+            * tests.yml
+            * zizmor.yaml
+        * pull_request_template.md
+    * docs 
+        * _static 
+        * documentation files 
+        * conf.py
+    * examples
+        * folders containing examples 
+        * README
+    * src 
+        * package_name eg click
+    * tests
+    * .editorconfig
+    * .gitignore 
+    * .pre-commit-config.yml
+    * .readthedocs.yml
+    * CHANGES.rst
+    * LICENSE.txt
+    * README.md
+    * pyproject.toml
+    * uv.lock
+
+
 ## Requirements Files
 
 Each development environment uses a requirements file and the [pip-tools] and
