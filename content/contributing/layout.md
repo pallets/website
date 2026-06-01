@@ -62,7 +62,17 @@ We do not use Dependabot to update these files as it is too noisy.
 
 ## Tests
 
+### Pytest
 [pytest] is used to run the tests, found in the `tests` folder.
+
+Pytest configuration in pyproject.toml 
+```
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = [
+    "error",
+]
+```
 
 [tox] is used to run different test environments, including Python versions,
 style checks, documentation, and typing. The `tox.ini` file configures this.
