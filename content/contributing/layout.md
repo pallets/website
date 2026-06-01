@@ -10,32 +10,32 @@ project, it should be applied to all others as well.
 
 ## Standard Layout
 
-* root 
-    * .devcontainer 
-    * .github 
+* root
+    * .devcontainer
+    * .github
         * ISSUE_TEMPLATE
-            * bug-report.md 
+            * bug-report.md
             * config.yml
             * feature-request
-        * workflows 
+        * workflows
             * lock.yml
-            * pre-commit.yml 
+            * pre-commit.yml
             * publish.yml
             * tests.yml
             * zizmor.yaml
         * pull_request_template.md
-    * docs 
-        * _static 
-        * documentation files 
+    * docs
+        * _static
+        * documentation files
         * conf.py
     * examples
-        * folders containing examples 
+        * folders containing examples
         * README
-    * src 
+    * src
         * package_name eg click
     * tests
     * .editorconfig
-    * .gitignore 
+    * .gitignore
     * .pre-commit-config.yml
     * .readthedocs.yml
     * CHANGES.rst
@@ -65,7 +65,7 @@ We do not use Dependabot to update these files as it is too noisy.
 ### Pytest
 [pytest] is used to run the tests, found in the `tests` folder.
 
-Pytest configuration in pyproject.toml 
+Pytest configuration in pyproject.toml
 ```
 [tool.pytest.ini_options]
 testpaths = ["tests"]
