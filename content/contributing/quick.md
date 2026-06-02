@@ -1,8 +1,8 @@
 # Contributing Quick Reference
 
 This document assumes you have some familiarity with Git, GitHub, and Python
-virutalenvs. If you're not familiar with contributing to Python projects, you
-can refer to the [Detailed Development Environment Setup](setup.md) instead.
+virtual environments. If you're not familiar with contributing to Python projects, you
+can refer to [Development Environment Setup](setup.md) instead.
 
 These instructions will work with at least Bash and PowerShell, and should work
 on other shells. On Windows, use PowerShell, not CMD.
@@ -94,13 +94,19 @@ Any time you open a new terminal, you need to activate the virtualenv again. If
 you've pulled from upstream recently, you can re-run the `uv sync` command to
 get the current dev dependencies.
 
+Install the pre-commit hooks:
+
+```
+$ pre-commit install --install-hooks
+```
+
 ## Run Tests
 
 These are the essential test commands you can run while developing:
 
 -   `pytest` - Run the unit tests.
 -   `mypy` - Run the main type checker.
--   `tox run -e docs` - Build the documentation.
+-   `tox run -e docs,docs-auto` - Build the documentation in auto-reload mode. Navigate to `localhost:8000` to preview docs.
 
 These are some more specific commands if you need them:
 
@@ -113,11 +119,8 @@ These are some more specific commands if you need them:
     including unchanged and unstaged.
 -   `tox run -e py3.11` - Run unit tests with a specific Python version. The
     version must be installed. `-e pypy` will run against PyPy.
--   `pyright` - A second type checker.
 -   `tox run -e typing` - Run all typing checks. This includes `pyright` and its
     export check as well.
--   `python -m http.server -b 127.0.0.1 -d docs/_build/html` - Serve the
-    documentation.
 -   `tox run` and `tox parallel` can be shortened to `tox r` and `tox p`.
 
 ## Create a Pull Request

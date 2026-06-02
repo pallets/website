@@ -45,10 +45,10 @@ may close it or ask you to report a regular issue instead.
 -   Untrusted input passed to Click CLI applications. Users must follow secure
     practices when entering commands into a terminal or passing arguments to a
     command, regardless of what it's implemented in.
--   Regular expression performance, often referred to as "ReDoS". Deployed
-    applications should use standard/recommended resource limits offered by
-    their server software and hosting service. You may report this as a regular
-    performance issue instead of a security issue.
+-   Regular expression performance, often referred to as "ReDoS", and other
+    parsing performance. Deployed applications should use standard/recommended
+    resource limits offered by their server software and hosting service. You
+    may report this as a regular performance issue instead of a security issue.
 -   Automated reports from vulnerability scanners or "AI" tools. Please make it
     clear that you understand what you are reporting and have put personal time
     into crafting the report.

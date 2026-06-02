@@ -14,13 +14,14 @@ these guides:
 
 If you would like to fix an issue or implement a feature, see these guides:
 
--   [Quick Reference](quick.md) If you're already familiar with contributing,
+-   [Quick Reference](quick.md): If you're already familiar with contributing,
     this provides an essential overview of the following guides.
--   Start Here: Detailed Development Environment Setup - Coming Soon
+-   [Detailed Development Environment Setup](setup.md): If you are new to contributing
+     to Python packages, start here.
 -   [Create a Pull Request](pr.md)
--   Write and Run Tests - Coming Soon
--   Static Type Checks - Coming Soon
+-   [Write and Run Tests](tests.md)
 -   [Edit and Build Documentation](docs.md)
+-   Static Type Checks - Coming Soon
 -   Changelog Style - Coming Soon
 -   Linting and Formatting - Coming Soon
 

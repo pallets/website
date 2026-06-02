@@ -150,7 +150,7 @@ make all change log files Markdown to avoid this issue.
 
 **Never use GitHub's "Generate release notes" feature.** Copying each commit
 message/PR title is not helpful compared to the curated change log we produce.
-Additionally, the pings it adds for each contribtor can become spammy,
+Additionally, the pings it adds for each contributor can become spammy,
 especially if mirrors/bots pick up the release and copy it into other
 issues/commits, which _has_ happened in the past.
 
@@ -166,7 +166,7 @@ Close the milestone. Click the link to the milestone from the PR, click "Edit",
 then click "Close".
 
 Merge the PR. **Make sure the "create a merge commit" strategy is selected.**
-Using the "sqaush" or "rebase" strategies will cause the tagged commit to be out
+Using the "squash" or "rebase" strategies will cause the tagged commit to be out
 of sync with the repo. Remember, you tagged the _specific_ commit in the PR,
 squashing or rebasing would re-create that commit so the tag would no longer be
 valid. This is recoverable with difficulty, but don't let it happen.
@@ -195,7 +195,7 @@ can defer doing all this until at least one issue is reported.
 	4.  Commit the changes with the message `start version A.B.C+1`
 	5.  Push this commit, no need to create a PR.
 3.  Merge `stable` into `main`. Make sure the new change log section is merged
-    _below_ the section for the next feature relase, and that the version isn't
+    _below_ the section for the next feature release, and that the version isn't
     overwritten.
 4.  Push `main`.
 

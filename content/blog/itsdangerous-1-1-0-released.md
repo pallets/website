@@ -8,11 +8,11 @@ tags = ["releases"]
 itsdangerous 1.1.0 has been released to fix compatibility issues that were
 affecting projects while upgrading. Due to these issues, we had to make a quick
 decision and pull itsdangerous 1.0.0 from PyPI earlier today to prevent more
-projects from being affected. We appologize for the difficulty this caused, and
-the changes in this release should address compatibilty going forward.
+projects from being affected. We apologize for the difficulty this caused, and
+the changes in this release should address compatibility going forward.
 
 1.0.0 changed the default digest algorithm from SHA-1 to SHA-512. SHA-1 as used
-by itsdangerous was never suceptible to the collision issue published last year,
+by itsdangerous was never susceptible to the collision issue published last year,
 but the change was made for peace of mind. However, this change invalidated
 existing signatures that were in use.
 
@@ -28,7 +28,7 @@ Additionally, we reverted a change to the project name in setup.py. 1.0.0
 changed the capitalization from "itsdangerous" to "ItsDangerous", but this
 caused issues with some systems. The name will remain as "itsdangerous".
 
-We appologize again for the issues and thank everyone in the community who
+We apologize again for the issues and thank everyone in the community who
 contributed to the discussion.
 
 ## Upgrade

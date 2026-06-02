@@ -52,7 +52,7 @@ people will want to ask and participate, and our community will grow.
 
 Try to answer questions directly and politely. After answering the
 immediate question, it's fine to suggest other improvements, or ask followup
-questions. Avoid being overwhelming or judgemental. Avoid phrases like "just do this", "it's obvious",
+questions. Avoid being overwhelming or judgmental. Avoid phrases like "just do this", "it's obvious",
 "why would you do that", etc. Remember, everyone is at a different stage of
 learning, and you were there once as well.
 
