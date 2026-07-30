@@ -8,6 +8,7 @@ from datetime import UTC
 import sqlalchemy as sa
 import sqlalchemy.orm as orm
 from feedgen.feed import FeedGenerator
+from flask import current_app
 from flask import url_for
 
 from . import db
@@ -17,6 +18,7 @@ from .markdown import render_content
 
 class BasePage(Model):
     content_prefix: str = ""
+    content_ext: str = ".md"
     __abstract__ = True
     path: orm.Mapped[str] = orm.mapped_column(primary_key=True)
     is_dir: orm.Mapped[bool] = orm.mapped_column(default=False)
@@ -31,6 +33,23 @@ class BasePage(Model):
             path = posixpath.join(self.content_prefix, posixpath.dirname(self.path))
             self.content_html = render_content(self.content, path)
 
+    @property
+    def content_file(self) -> str:
+        prefix = posixpath.join("content", self.content_prefix, "")
+        if self.is_dir:
+            return f"{prefix}{self.path}/index{self.content_ext}"
+        return f"{prefix}{self.path}{self.content_ext}"
+
+    @property
+    def github_edit_url(self) -> str:
+        repo = current_app.config["GITHUB_REPO"]
+        return f"{repo}/edit/main/{self.content_file}"
+
+    @property
+    def github_view_url(self) -> str:
+        repo = current_app.config["GITHUB_REPO"]
+        return f"{repo}/blob/main/{self.content_file}"
+
 
 class Page(BasePage):
     __tablename__ = "page"
@@ -38,6 +57,7 @@ class Page(BasePage):
 
 class Person(BasePage):
     content_prefix = "people"
+    content_ext = ".toml"
     __tablename__ = "person"
     name: orm.Mapped[str]
     nickname: orm.Mapped[str | None]

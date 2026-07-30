@@ -1,6 +1,8 @@
 {% extends "layout.html" %}
+{% from "macros.html" import page_links %}
 
 {% block page %}
+  {{ page_links(page.github_view_url, page.github_edit_url) }}
   <h1>{{ page.title }}</h1>
   Posted by {{ page.author_name }} on {{ page.published.strftime("%Y-%m-%d") }}
   <hr>

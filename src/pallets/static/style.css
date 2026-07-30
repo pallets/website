@@ -28,6 +28,30 @@ footer {
   align-items: start;
 }
 
+.edit-this-page {
+  float: right;
+  display: inline-flex;
+  align-items: center;
+  font-size: 1rem;
+  color: var(--pico-muted-color);
+  margin-top: 0.3em;
+  padding: 0.25em 0.6em;
+  border-radius: var(--pico-border-radius);
+  transition: color 0.2s, background-color 0.2s;
+  vertical-align: middle;
+}
+
+.edit-this-page:hover {
+  color: var(--pico-primary);
+  background-color: var(--pico-muted-background);
+}
+
+.edit-this-page svg {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+}
+
 footer ul {
   display: grid;
 }

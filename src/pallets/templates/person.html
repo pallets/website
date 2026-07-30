@@ -1,12 +1,13 @@
 {% extends "layout.html" %}
+{% from "macros.html" import page_links %}
 
 {% block page %}
   <hgroup>
     {% if page.name %}
-      <h1>{{ page.name }}</h1>
+      <h1>{{ page.name }} {{ page_links(page.github_view_url, page.github_edit_url) }}</h1>
       <p>{{ page.nickname }}</p>
     {% else %}
-      <h1>{{ page.nickname }}</h1>
+      <h1>{{ page.nickname }} {{ page_links(page.github_view_url, page.github_edit_url) }}</h1>
     {% endif %}
   </hgroup>
   <nav>
