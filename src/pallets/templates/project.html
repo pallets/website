@@ -3,16 +3,14 @@
 {% block page %}
   <section style="text-align: center;">
     <h1 class="title-replace">{{ page.name }}</h1>
-    <img style="height: 6em;" src="/static/content/projects/{{ page.logo }}">
+    <img src="/static/content/projects/{{ page.logo }}" style="height: 6em; background: white; padding-right: 1em; border-radius: 0.6em;">
   </section>
-  <nav>
-    <span></span>
+  <nav style="justify-content: center;">
     <ul>
       <li><a href="{{ page.docs }}">Documentation</a></li>
       <li><a href="{{ page.pypi }}">Releases on PyPI</a></li>
       <li><a href="{{ page.github }}">Source on GitHub</a></li>
     </ul>
-    <span></span>
   </nav>
   <section>
     {{ page.content_html | safe }}

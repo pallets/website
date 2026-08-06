@@ -28,14 +28,6 @@ footer {
   align-items: start;
 }
 
-footer ul {
-  display: grid;
-}
-
-footer ul li {
-  list-style-type: none;
-}
-
 .title-replace {
   position: absolute;
   width: 1px;
