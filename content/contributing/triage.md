@@ -7,10 +7,9 @@ make; this page is a loose collection of guidelines to keep in mind. Close
 issues or ask for clarification as needed.
 
 Determine if the issue is with the Pallets library. Issues with the user's own
-code should be asked as [questions] instead, use the "Convert to discussion"
-link at the bottom of the sidebar. Issues with another library, often indicated
-by a traceback pointing to other code, should be reported to that library
-instead.
+code should be asked as [questions] on Discord instead. Issues with another
+library, often indicated by a traceback pointing to other code, should be
+reported to that library instead.
 
 [questions]: questions.md
 

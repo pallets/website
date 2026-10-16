@@ -9,9 +9,6 @@ your own code:
     name and a specific search term such as an error message.
 -   Ask in the `#questions` channel on our Discord chat:
     <https://discord.gg/pallets>.
--   Use the project's GitHub Discussions tab for long term discussion or
-    larger questions. Each project has its own Discussions tab. For example,
-    Flask's is here: <https://github.com/pallets/flask/discussions>.
 
 ## How to Ask
 
@@ -46,9 +43,9 @@ to you.
 
 ## How to Answer
 
-A great way to contribute is to answer questions asked on Discord or the
-project's GitHub Discussions tab. The more people answer helpfully, the more
-people will want to ask and participate, and our community will grow.
+A great way to contribute is to answer questions asked on Discord. The more
+people answer helpfully, the more people will want to ask and participate,
+and our community will grow.
 
 Try to answer questions directly and politely. After answering the
 immediate question, it's fine to suggest other improvements, or ask followup

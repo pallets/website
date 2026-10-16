@@ -79,10 +79,9 @@ issues include:
 -   Improve static type annotations. We target mypy primarily, but would also
     like to improve compatibility with pyright. We also want to ensure we are
     using types correctly, and add tests.
--   Answer questions on GitHub Discussions and our Discord chat server.
-    Referencing canonical sources and providing explanation beyond the immediate
-    answer creates resources for others to find later and enables them to answer
-    in turn.
+-   Answer questions on our Discord chat server. If the answer was hard to
+    find in canonical sources, or required additional explanation, it might
+    be good to add it to our documentation for others to find next time.
 
 ## Get Help Contributing
 

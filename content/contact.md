@@ -12,18 +12,13 @@ your own projects that use any of our libraries; do not post images of code, and
 use a paste site like <https://dpaste.com> for long blocks of code. Use the
 `#random` channel to post about projects, libraries, and programming news.
 
-The project-specific channels are reserved for contributor discussion, not for
-general questions. If you are contributing to one of our projects and need to
-discuss anything, use the `#get-access` channel to be able to post.
+The `Contributing` category of channels are reserved for contributor discussion,
+not for general questions. Do not post there unless you are contributing to a
+Pallets project.
 
 The IRC channel ``#pallets`` on <https://libera.chat> is connected to the
 ``#questions`` channel on Discord. In Discord you'll see a `bot` label for IRC
 users; in IRC you'll see a `Pallets-` prefix for Discord users.
-
-## GitHub Discussions
-
-You may use a project's GitHub Discussions tab to ask questions. This is more
-permanent than chat, and allows feedback and accepting answers.
 
 ## Reporting Security Issues
 
